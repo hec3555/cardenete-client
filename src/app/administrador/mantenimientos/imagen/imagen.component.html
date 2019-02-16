@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <div *ngFor="let imagen of imagenes">
+      <div>
+        <div>
+          descripcion de imagen
+        </div>
+        <div>
+          {{imagen.descripcion}}
+        </div>
+        <div>
+          <button (click)="edit(imagen)" class="">
+            <i class="fas fa-edit fa-2x"></i>
+          </button>
+        </div>
+        <div>
+          <button (click)="delete(imagen)" class="">
+            <i class="fas fa-trash-alt fa-2x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

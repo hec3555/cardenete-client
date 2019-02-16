@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <div *ngFor="let sugerencia of sugerencias">
+      <div>
+        <div>
+          nombre de sugerencia
+        </div>
+        <div>
+          {{sugerencia.nombre}}
+        </div>
+        <div>
+          <button (click)="edit(sugerencia)" class="">
+            <i class="fas fa-edit fa-2x"></i>
+          </button>
+        </div>
+        <div>
+          <button (click)="delete(sugerencia)" class="">
+            <i class="fas fa-trash-alt fa-2x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <div *ngFor="let articulo of articulos">
+      <div>
+        <div>
+          Descripcion de articulo
+        </div>
+        <div>
+          {{articulo.descripcion}}
+        </div>
+        <div>
+          <button (click)="edit(articulo)" class="">
+            <i class="fas fa-edit fa-2x"></i>
+          </button>
+        </div>
+        <div>
+          <button (click)="delete(articulo)" class="">
+            <i class="fas fa-trash-alt fa-2x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

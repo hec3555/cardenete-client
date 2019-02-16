@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <div *ngFor="let usuario of usuarios">
+      <div>
+        <div>
+          nombre de usuario
+        </div>
+        <div>
+          {{usuario.nombre}} {{usuario.ape1}} {{usuario.ape2}}
+        </div>
+        <div>
+          <button (click)="edit(usuario)" class="">
+            <i class="fas fa-edit fa-2x"></i>
+          </button>
+        </div>
+        <div>
+          <button (click)="delete(usuario)" class="">
+            <i class="fas fa-trash-alt fa-2x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

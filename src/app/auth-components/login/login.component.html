@@ -1,0 +1,25 @@
+<div id="padre">
+  <div class="login">
+    <h1>Login</h1>
+    <form [formGroup]="formularioLogin">
+      <input type="text" formControlName="user" id="user" name="user" placeholder="Username" #user />
+      <div style="width: 200px;" *ngIf="formularioLogin.get('user').hasError('required')">
+        <p-message severity="error" text="Nombre de usuario obligatorio"></p-message>
+      </div>
+      <input type="password" formControlName="pass" id="pass" name="pass" placeholder="Password" #pass />
+      <div style="width: 200px;" *ngIf="formularioLogin.get('pass').hasError('required')">
+        <p-message severity="error" text="Contraseña obligatoria"></p-message>
+      </div>
+      <button type="submit" (click)="login(user.value, pass.value)" [disabled]="!formularioLogin.valid"
+        class="btn btn-primary btn-block btn-large">Sign
+        in.</button>
+    </form>
+
+    <a (click)="login('hec3555','babydriver')" class="btn btn-default">
+      Admin
+    </a>
+    <a (click)="login('usuario', 'usuario')" class="btn btn-default">
+      Usuario
+    </a>
+  </div>
+</div>
