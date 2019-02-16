@@ -4,6 +4,7 @@ import { LoginService } from './login.service';
 
 import { Observable } from 'rxjs';
 import { isUndefined } from 'util';
+import { Roles } from 'src/app/enum/roles.enum';
 
 @Injectable({ providedIn: "root" })
 export class AuthAdmin implements CanLoad, CanActivate {
@@ -21,9 +22,9 @@ export class AuthAdmin implements CanLoad, CanActivate {
         state: RouterStateSnapshot) {
         const id = next.data.id;
         console.log("AuthGuard->CanActivate:", state, this.isAdmin(id), `Permiso requerido para entrar: ${id}`);
-        if(id === 1){
+        if(id === Roles.ADMIN){
             return this.isAdmin(id);
-        }else if(id === 2){
+        }else if(id === Roles.USER){
             return this.isUsuario(id);
         }
     }

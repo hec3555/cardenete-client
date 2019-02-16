@@ -13,6 +13,7 @@ import { SeccionComponent } from './mantenimientos/seccion/seccion.component';
 import { SugerenciaComponent } from './mantenimientos/sugerencia/sugerencia.component';
 import { TipousuarioComponent } from './mantenimientos/tipousuario/tipousuario.component';
 import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
+import { Roles } from '../enum/roles.enum';
 
 export const routes: Routes = [
     {
@@ -23,7 +24,7 @@ export const routes: Routes = [
                 path: "inicio",
                 component: IndexadminComponent,
                 canLoad: [AuthAdmin],
-                data: { id: 1 }
+                data: { id: Roles.ADMIN }
             },
             {
                 path: "mantenimiento",
@@ -39,50 +40,50 @@ export const routes: Routes = [
                         path: "articulo",
                         component: ArticuloComponent,
                         canLoad: [AuthAdmin],
-                        data: { id: 1 }
+                        data: { id: Roles.ADMIN }
                     },
                     {
                         path: "categoria",
                         component: CategoriaComponent,
                         canLoad: [AuthAdmin],
-                        data: { id: 1 }
+                        data: { id: Roles.ADMIN }
                     },
                     {
                         path: "imagen",
                         component: ImagenComponent,
                         canLoad: [AuthAdmin],
-                        data: { id: 1 }
+                        data: { id: Roles.ADMIN }
                     },
                     {
                         path: "seccion",
                         component: SeccionComponent,
                         canLoad: [AuthAdmin],
-                        data: { id: 1 }
+                        data: { id: Roles.ADMIN }
                     },
                     {
                         path: "sugerencia",
                         component: SugerenciaComponent,
                         canLoad: [AuthAdmin],
-                        data: { id: 1 }
+                        data: { id: Roles.ADMIN }
                     },
                     {
                         path: "tipousuario",
                         component: TipousuarioComponent,
                         canLoad: [AuthAdmin],
-                        data: { id: 1 }
+                        data: { id: Roles.ADMIN }
                     },
                     {
                         path: "usuario",
                         component: UsuarioComponent,
                         canLoad: [AuthAdmin],
-                        data: { id: 1 }
+                        data: { id: Roles.ADMIN }
                     }
                 ],
                 canLoad: [AuthAdmin],
-                data: { id: 1 }
+                data: { id: Roles.ADMIN }
             }
         ],
         canActivate: [AuthAdmin],
-        data: { id: 1 }
+        data: { id: Roles.ADMIN }
     }
 ];

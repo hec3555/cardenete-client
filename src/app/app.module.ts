@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule, routes } from './app-routing.module';
+import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth-components/login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -27,7 +27,6 @@ import { MessageModule } from 'primeng/message';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     BrowserModule,
     FormsModule,
