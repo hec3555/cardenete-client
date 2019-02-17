@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
     this.formularioLogin = new FormGroup({
       user: new FormControl('', [Validators.required]),
       pass: new FormControl('', [Validators.required])
-    })
+    });
+
+    this.loginService.check().subscribe((usuario: UsuarioInterface) => {
+      console.log(usuario);
+    });
   }
 
   login(login: string, pass: string) {
