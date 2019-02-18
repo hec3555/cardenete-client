@@ -16,7 +16,7 @@ export class UsuarioComponent implements OnInit {
       data => this.getData()
     )
   }
-  usuarioes: UsuarioInterface[];
+  usuarios: UsuarioInterface[];
 
   parentMessage = false;
   padre: Subject<UsuarioInterface> = new Subject();
@@ -27,7 +27,7 @@ export class UsuarioComponent implements OnInit {
 
   getData(): void {
     this.sql.getAll().subscribe(
-      data => this.usuarioes = data,
+      data => this.usuarios = data,
       error => this.showTooltip('error', '', `${error.msg}`)
     )
   }

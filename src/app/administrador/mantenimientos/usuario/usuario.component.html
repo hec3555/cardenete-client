@@ -1,24 +1,14 @@
 <div class="container">
   <div>
-    <div *ngFor="let usuario of usuarios">
-      <div>
-        <div>
-          nombre de usuario
-        </div>
-        <div>
-          {{usuario.nombre}} {{usuario.ape1}} {{usuario.ape2}}
-        </div>
-        <div>
-          <button (click)="edit(usuario)" class="">
-            <i class="fas fa-edit fa-2x"></i>
-          </button>
-        </div>
-        <div>
-          <button (click)="delete(usuario)" class="">
-            <i class="fas fa-trash-alt fa-2x"></i>
-          </button>
-        </div>
-      </div>
-    </div>
+    <table style="border: 2px solid black; border-collapse: collapse;">
+      <tr style="border: 2px solid black;">
+        <td style="border: 2px solid black; font-weight: bold">
+          Nombre del usuario
+        </td>
+      </tr>
+      <tr *ngFor="let usuario of usuarios" style="border: 2px solid black;">
+        <td>{{ usuario.nombre }} {{ usuario.ape1 }} {{ usuario.ape2 }}</td>
+      </tr>
+    </table>
   </div>
 </div>
