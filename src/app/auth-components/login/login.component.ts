@@ -24,10 +24,6 @@ export class LoginComponent implements OnInit {
       user: new FormControl('', [Validators.required]),
       pass: new FormControl('', [Validators.required])
     });
-
-    this.loginService.check().subscribe((usuario: UsuarioInterface) => {
-      console.log(usuario);
-    });
   }
 
   login(login: string, pass: string) {
@@ -39,7 +35,7 @@ export class LoginComponent implements OnInit {
           if(usuario.id_tipo_usuario.id == Roles.ADMIN){
             this.router.navigate(['/admin/inicio']);
           }else{
-            this.router.navigate(['usuario/inicio']);
+            // this.router.navigate(['usuario/inicio']);
           }
         })
       },
