@@ -6,7 +6,8 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-seccion',
   templateUrl: './seccion.component.html',
-  styleUrls: ['./seccion.component.css']
+  styleUrls: ['./seccion.component.css'],
+  providers: [MessageService]
 })
 export class SeccionComponent implements OnInit {
 

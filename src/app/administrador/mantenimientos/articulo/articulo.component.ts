@@ -6,7 +6,8 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-articulo',
   templateUrl: './articulo.component.html',
-  styleUrls: ['./articulo.component.css']
+  styleUrls: ['./articulo.component.css'],
+  providers: [MessageService]
 })
 export class ArticuloComponent implements OnInit {
 

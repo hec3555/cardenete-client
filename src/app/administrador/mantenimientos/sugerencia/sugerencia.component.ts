@@ -6,7 +6,8 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-sugerencia',
   templateUrl: './sugerencia.component.html',
-  styleUrls: ['./sugerencia.component.css']
+  styleUrls: ['./sugerencia.component.css'],
+  providers: [MessageService]
 })
 export class SugerenciaComponent implements OnInit {
 

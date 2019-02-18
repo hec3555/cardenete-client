@@ -6,7 +6,8 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-imagen',
   templateUrl: './imagen.component.html',
-  styleUrls: ['./imagen.component.css']
+  styleUrls: ['./imagen.component.css'],
+  providers: [MessageService]
 })
 export class ImagenComponent implements OnInit {
 
