@@ -1,6 +1,6 @@
+import { ConfigService } from './../../../service/config/config.service';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
-import { Subject } from 'rxjs';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -11,19 +11,28 @@ import { MessageService } from 'primeng/api';
 })
 export class UsuarioComponent implements OnInit {
 
-  constructor(private sql: UsuarioService, private messageService: MessageService) {
+  constructor(private sql: UsuarioService, private messageService: MessageService, private config: ConfigService) {
     sql.reloadUsuarios.subscribe(
-      data => this.getData()
+      () => this.getData()
     )
   }
   usuarios: UsuarioInterface[];
 
-  parentMessage = false;
-  padre: Subject<UsuarioInterface> = new Subject();
 
   ngOnInit() {
     this.getData();
   }
+
+
+  formatDate(millis, hour){
+    if(hour == true){
+      return this.config.miliToDateTime(millis);
+    }else{
+      return this.config.miliToDate(millis);
+    }
+    
+  }
+
 
   getData(): void {
     this.sql.getAll().subscribe(
@@ -32,11 +41,6 @@ export class UsuarioComponent implements OnInit {
     )
   }
 
-  edit(usuario: UsuarioInterface): void {
-    this.padre.next(usuario);
-    this.parentMessage = true;
-  }
-  
   delete(data: UsuarioInterface): void{
     this.sql.delete(data).subscribe(
       data => {

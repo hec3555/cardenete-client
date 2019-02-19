@@ -12,22 +12,23 @@
       <li class="nav-item">
         <a class="nav-link" >Home</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" [routerLink]="['mantenimiento/usuario']">Usuarios</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['mantenimiento/articulo']">Artículos</a>
       </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Alcaldia
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Administrar
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Saludo</a>
+          <a class="dropdown-item" [routerLink]="['mantenimiento/usuario']">Usuarios</a>
+          <a class="dropdown-item" [routerLink]="['mantenimiento/tipousuario']">Tipo de usuarios</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Corporacion municipal</a>
+          <a class="dropdown-item" [routerLink]="['mantenimiento/sugerencia']">Sugerencias</a>
         </div>
-      </li> -->
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

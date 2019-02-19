@@ -22,7 +22,8 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TooltipModule } from 'primeng/tooltip';
 import { CalendarModule } from 'primeng/calendar';
 import { ChartModule } from 'primeng/chart';
-
+import { InputTextModule } from 'primeng/inputtext';
+import {ListboxModule} from 'primeng/listbox';
 import { ReactiveFormsModule, FormsModule } from '../../../node_modules/@angular/forms';
 
 
@@ -34,6 +35,11 @@ import { SeccionComponent } from './mantenimientos/seccion/seccion.component';
 import { SugerenciaComponent } from './mantenimientos/sugerencia/sugerencia.component';
 import { TipousuarioComponent } from './mantenimientos/tipousuario/tipousuario.component';
 import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
+import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
+import { UsuarioRemoveComponent } from './mantenimientos/usuario/usuario-remove/usuario-remove.component';
+import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
+import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 @NgModule({
@@ -47,7 +53,11 @@ import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
         SeccionComponent,
         SugerenciaComponent,
         TipousuarioComponent,
-        UsuarioComponent
+        UsuarioComponent,
+        UsuarioEditComponent,
+        UsuarioRemoveComponent,
+        UsuarioViewComponent,
+        UsuarioNewComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
@@ -66,7 +76,10 @@ import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
         ScrollPanelModule,
         TooltipModule,
         CalendarModule,
-        ChartModule
+        ChartModule,
+        InputTextModule,
+        CheckboxModule,
+        ListboxModule
     ],
     exports: [
         HeaderAdminComponent

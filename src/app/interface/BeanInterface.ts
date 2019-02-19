@@ -39,7 +39,7 @@ interface SugerenciaInterface{
 
 interface TipousuarioInterface{
     id: number;
-    descripcion: String;
+    desc: String;
 }
 
 interface UsuarioInterface{

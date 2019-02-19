@@ -1,0 +1,93 @@
+<div class="container">
+  <form [formGroup]="formularioUsuarioEdit">
+    <!-- ID -->
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="text" name="id" id="id" class="form-control" formControlName="id" disabled="disabled" pInputText>
+    </div>
+    <!-- NOMBRE -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="nombre" id="nombre" type="text" size="30" pInputText>
+        <label for="float-input">Nombre - *obligatorio</label>
+      </span>
+    </div>
+    <div style="margin-bottom: 15px;"
+      *ngIf="formularioUsuarioEdit.get('nombre').hasError('required') && formularioUsuarioEdit.get('nombre').dirty">
+      <p-message severity="error" text="Nombre obligatorio"></p-message>
+    </div>
+    <!-- PRIMER APELLIDO -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="ape1" id="ape1" type="text" size="30" pInputText>
+        <label for="float-input">Primer apellido - *obligatorio</label>
+      </span>
+    </div>
+    <div style="margin-bottom: 15px;"
+      *ngIf="formularioUsuarioEdit.get('ape1').hasError('required') && formularioUsuarioEdit.get('ape1').dirty">
+      <p-message severity="error" text="Primer apellido obligatorio"></p-message>
+    </div>
+    <!-- SEGUNDO APELLIDO -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="ape2" id="ape2" type="text" size="30" pInputText>
+        <label for="float-input">Segundo apellido</label>
+      </span>
+    </div>
+    <!-- FECHA NACIMIENTO -->
+    <div class="form-group">
+      Fecha de nacimiento
+      <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es"></p-calendar>
+      <div class="mt-2 mb-2" style="width: 200px;"
+        *ngIf="formularioUsuarioEdit.get('fecha_nacimiento').hasError('required') && formularioUsuarioEdit.get('fecha_nacimiento').touched ">
+        <p-message severity="error" text="Fecha de nacimiento obligatoria"></p-message>
+      </div>
+    </div>
+    <!-- FECHA ALTA -->
+    <div class="form-group">
+      Fecha de alta
+      <p-calendar dateFormat="dd/mm/yy " formControlName="fecha_alta" [locale]="es"></p-calendar>
+      <div class="mt-2 mb-2" style="width: 200px;"
+        *ngIf="formularioUsuarioEdit.get('fecha_alta').hasError('required') && formularioUsuarioEdit.get('fecha_alta').touched ">
+        <p-message severity="error" text="Fecha de alta obligatoria"></p-message>
+      </div>
+    </div>
+    <!-- LOGIN -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="login" id="login" type="text" size="30" pInputText>
+        <label for="float-input">Login</label>
+      </span>
+    </div>
+    <!-- PASS -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="pass" id="pass" type="password" size="30" pInputText>
+        <label for="float-input">Password</label>
+      </span>
+    </div>
+    <!-- EMAIL -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="email" id="email" type="text" size="30" pInputText>
+        <label for="float-input">Email</label>
+      </span>
+    </div>
+    <!-- CONFIRMADO -->
+    <div class="form-group">
+      <p style="display: inline-block; margin-right: 2.8%;">Confirmado </p>
+      <input type="checkbox" formControlName="confirmado" class="form-check-input" id="confirmado">
+    </div>
+    <!-- TIPO DE USUARIO -->
+    <div class="form-group">
+        <p-listbox [options]="tipousuarios" optionLabel="desc" formControlName="id_tipo_usuario" id="id_tipo_usuario"></p-listbox>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-12 text-center ">
+        <button type="submit" class=" btn btn-block mybtn btn-success tx-tfm" (click)="editUsuario()"
+          [disabled]="!formularioUsuarioEdit.valid">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

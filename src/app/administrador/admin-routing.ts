@@ -1,3 +1,4 @@
+import { CanLoad } from '@angular/router';
 // import { HelpComponent } from './help/help.component';
 import { AuthAdmin } from '../service/login/auth.service';
 import { AdministradorComponent } from "./administrador.component";
@@ -14,6 +15,10 @@ import { SugerenciaComponent } from './mantenimientos/sugerencia/sugerencia.comp
 import { TipousuarioComponent } from './mantenimientos/tipousuario/tipousuario.component';
 import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
 import { Roles } from '../enum/roles.enum';
+import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
+import { UsuarioRemoveComponent } from './mantenimientos/usuario/usuario-remove/usuario-remove.component';
+import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
+import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
 
 export const routes: Routes = [
     {
@@ -75,6 +80,24 @@ export const routes: Routes = [
                     {
                         path: "usuario",
                         component: UsuarioComponent,
+                        canLoad: [AuthAdmin],
+                        data: { id: Roles.ADMIN },
+                    },
+                    {
+                        path:"usuarioview/:id",
+                        component: UsuarioViewComponent,
+                        canLoad: [AuthAdmin],
+                        data: { id: Roles.ADMIN }
+                    },
+                    {
+                        path:"usuarioedit/:id",
+                        component: UsuarioEditComponent,
+                        canLoad: [AuthAdmin],
+                        data: { id: Roles.ADMIN }
+                    },
+                    {
+                        path:"usuarionew",
+                        component: UsuarioNewComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     }

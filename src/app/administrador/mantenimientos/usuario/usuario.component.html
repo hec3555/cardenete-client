@@ -1,14 +1,39 @@
 <div class="container">
-  <div>
-    <table style="border: 2px solid black; border-collapse: collapse;">
-      <tr style="border: 2px solid black;">
-        <td style="border: 2px solid black; font-weight: bold">
-          Nombre del usuario
-        </td>
-      </tr>
-      <tr *ngFor="let usuario of usuarios" style="border: 2px solid black;">
-        <td>{{ usuario.nombre }} {{ usuario.ape1 }} {{ usuario.ape2 }}</td>
-      </tr>
-    </table>
-  </div>
+    <div class="table-responsive">
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Tipo de usuario</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Fecha nacimiento</th>
+              <th scope="col">Fecha de alta</th>
+              <th scope="col">Login</th>
+              <th scope="col">Email</th>
+              <th scope="col">Confirmado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let usuario of usuarios">
+                  <th scope="row">{{ usuario.id }}</th>
+                  <td>{{ usuario.id_tipo_usuario.desc }}</td>
+                  <td>{{ usuario.nombre }}</td>
+                  <td>{{ usuario.ape1 }} {{ usuario.ape2 }}</td>
+                  <td>{{ formatDate(usuario.fecha_nacimiento) }}</td>
+                  <td>{{ formatDate(usuario.fecha_alta,true) }}</td>
+                  <td>{{ usuario.login }}</td>
+                  <td>{{ usuario.email }}</td>
+                  <td>{{ usuario.confirmado }}</td>
+                  <td style="width: 150px">
+                    <i class="pi pi-eye" style="font-size: 1.5em" [routerLink]="['/admin/mantenimiento/usuarioview/'+usuario.id]"></i>
+                    <i class="pi pi-pencil" style="font-size: 1.5em" [routerLink]="['/admin/mantenimiento/usuarioedit/'+usuario.id]"></i>
+                    <i class="pi pi-plus-circle" style="font-size: 1.5em" [routerLink]="['/admin/mantenimiento/usuarionew/'+usuario.id]"></i>
+                    <i class="pi pi-trash" style="font-size: 1.5em"></i><!-- Llamar a la funcion de borrar pero mostrar confirmacion antes-->
+                  </td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
 </div>

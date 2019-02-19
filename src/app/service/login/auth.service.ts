@@ -21,7 +21,6 @@ export class AuthAdmin implements CanLoad, CanActivate {
     canActivate(next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot) {
         const id = next.data.id;
-        console.log("AuthGuard->CanActivate:", state, this.isAdmin(id), `Permiso requerido para entrar: ${id}`);
         if(id === Roles.ADMIN){
             return this.isAdmin(id);
         }else if(id === Roles.USER){

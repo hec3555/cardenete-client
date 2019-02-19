@@ -12,8 +12,8 @@ export class UsuarioService {
     getAll(): Observable<UsuarioInterface[]> {
         return this.http.get<UsuarioInterface[]>(`${this.config.api}usuarios`, this.config.header);
     }
-    getById(id: number): Observable<UsuarioInterface[]>{
-        return this.http.get<UsuarioInterface[]>(`${this.config.api}usuarios/${id}`, this.config.header);
+    getById(id: number): Observable<UsuarioInterface>{
+        return this.http.get<UsuarioInterface>(`${this.config.api}usuarios/${id}`, this.config.header);
     }
     update(usuario: UsuarioInterface): Observable<ResponseInterface> {
         return this.http.put<ResponseInterface>(`${this.config.api}usuarios`, usuario, this.config.header);

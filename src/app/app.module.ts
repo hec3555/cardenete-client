@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { routes } from './app-routing.module';
@@ -28,7 +29,7 @@ import { MessageModule } from 'primeng/message';
   imports: [
     BrowserModule,
     FormsModule,
-    BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     AdministradorModule,
