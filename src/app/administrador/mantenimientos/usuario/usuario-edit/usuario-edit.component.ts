@@ -19,6 +19,7 @@ export class UsuarioEditComponent implements OnInit {
     private usuarioSQL: UsuarioService,
     private tipousuarioService: TipousuarioService,
     private route: ActivatedRoute,
+    private router: Router,
     private config: ConfigService
     ) { }
 
@@ -40,7 +41,7 @@ export class UsuarioEditComponent implements OnInit {
     })
     this.tipoUsuario();
     this.formularioUsuarioEdit = new FormGroup({
-      id: new FormControl('',[Validators.nullValidator]),
+      id: new FormControl({value: '',disabled: true},[]),
       nombre: new FormControl('', [Validators.required]),
       ape1: new FormControl('', [Validators.required]),
       ape2: new FormControl('', [Validators.required]),
@@ -57,6 +58,7 @@ export class UsuarioEditComponent implements OnInit {
   putUsuarioForm(usuario: UsuarioInterface): void {
 
     this.tipousuarioSeleccionado = usuario.id_tipo_usuario;
+    this.usuarioSeleccionado = usuario;
 
     this.formularioUsuarioEdit.patchValue({
       id: usuario.id,
@@ -76,15 +78,17 @@ export class UsuarioEditComponent implements OnInit {
   editUsuario(): void {
 
     const usuario: UsuarioInterface = this.formularioUsuarioEdit.value;
-    
+    console.log(usuario);
     if(!usuario.pass){
       usuario.pass = '';
     }
+    usuario.id = this.usuarioSeleccionado.id;
 
     this.usuarioSQL.update(usuario).subscribe(
       (response: ResponseInterface) => {
         this.showTooltip('Usuario editado correctamente', '', `${response.msg}`)
         this.usuarioSQL.reloadUsuarios.emit();
+        this.router.navigate(['../../usuario'], {relativeTo: this.route});
       },
       (error: ResponseInterface) => {
         this.showTooltip('error', '', `Error editando el usuario`)
