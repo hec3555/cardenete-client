@@ -40,7 +40,7 @@ export class UsuarioEditComponent implements OnInit {
     })
     this.tipoUsuario();
     this.formularioUsuarioEdit = new FormGroup({
-      id: new FormControl(''),
+      id: new FormControl('',[Validators.nullValidator]),
       nombre: new FormControl('', [Validators.required]),
       ape1: new FormControl('', [Validators.required]),
       ape2: new FormControl('', [Validators.required]),
