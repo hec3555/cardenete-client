@@ -1,6 +1,6 @@
 <div class="container">
-  <div>
-    <button class="btn btn-primary" [routerLink]="['/admin/mantenimiento/usuarionew']">
+  <div class="row">
+    <button class="btn btn-primary col-md-2" style="margin: 2%" [routerLink]="['/admin/mantenimiento/usuarionew']">
       <i class="pi pi-plus-circle">Crear</i>
     </button>
   </div>
@@ -22,7 +22,7 @@
           </thead>
           <tbody>
               <tr *ngFor="let usuario of usuarios">
-                  <th scope="row">{{ usuario.id }}</th>
+                  <th>{{ usuario.id }}</th>
                   <td>{{ usuario.id_tipo_usuario.desc }}</td>
                   <td>{{ usuario.nombre }}</td>
                   <td>{{ usuario.ape1 }} {{ usuario.ape2 }}</td>
