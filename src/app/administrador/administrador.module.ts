@@ -36,7 +36,6 @@ import { SugerenciaComponent } from './mantenimientos/sugerencia/sugerencia.comp
 import { TipousuarioComponent } from './mantenimientos/tipousuario/tipousuario.component';
 import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
 import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
-import { UsuarioRemoveComponent } from './mantenimientos/usuario/usuario-remove/usuario-remove.component';
 import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
 import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -55,7 +54,6 @@ import {CheckboxModule} from 'primeng/checkbox';
         TipousuarioComponent,
         UsuarioComponent,
         UsuarioEditComponent,
-        UsuarioRemoveComponent,
         UsuarioViewComponent,
         UsuarioNewComponent
     ],

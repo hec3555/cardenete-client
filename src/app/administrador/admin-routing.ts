@@ -16,7 +16,6 @@ import { TipousuarioComponent } from './mantenimientos/tipousuario/tipousuario.c
 import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
 import { Roles } from '../enum/roles.enum';
 import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
-import { UsuarioRemoveComponent } from './mantenimientos/usuario/usuario-remove/usuario-remove.component';
 import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
 import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
 
@@ -35,48 +34,49 @@ export const routes: Routes = [
                 path: "mantenimiento",
                 component: MantenimientosComponent,
                 children: [
-                    //   {
-                    //     path: "inicio",
-                    //     component: InicioComponentMantenimiento,
-                    //     canLoad: [AuthAdmin],
-                    //     data: { id: 1 }
-                    //   },
+                    /* MANTENIMIENTO ARTICULO */
                     {
                         path: "articulo",
                         component: ArticuloComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },
+                    /* MANTENIMIENTO CATEGORIA */
                     {
                         path: "categoria",
                         component: CategoriaComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },
+                    /* MANTENIMIENTO IMAGEN */
                     {
                         path: "imagen",
                         component: ImagenComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },
+                    /* MANTENIMIENTO SECCION */
                     {
                         path: "seccion",
                         component: SeccionComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },
+                    /* MANTENIMIENTO SUGERENCIA */
                     {
                         path: "sugerencia",
                         component: SugerenciaComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },
+                    /* MANTENIMIENTO TIPO USUARIO */
                     {
                         path: "tipousuario",
                         component: TipousuarioComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },
+                    /* MANTENIMIENTO USUARIO */
                     {
                         path: "usuario",
                         component: UsuarioComponent,

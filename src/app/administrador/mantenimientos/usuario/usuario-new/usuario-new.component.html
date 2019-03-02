@@ -1,3 +1,95 @@
-<p>
-  usuario-new works!
-</p>
+<div class="container">
+  <form [formGroup]="formularioUsuarioNew">
+    <!-- NOMBRE -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="nombre" id="nombre" type="text" size="30" pInputText>
+        <label for="float-input">Nombre - *obligatorio</label>
+      </span>
+    </div>
+    <div style="margin-bottom: 15px;"
+      *ngIf="formularioUsuarioNew.get('nombre').hasError('required') && formularioUsuarioNew.get('nombre').dirty">
+      <p-message severity="error" text="Nombre obligatorio"></p-message>
+    </div>
+    <!-- PRIMER APELLIDO -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="ape1" id="ape1" type="text" size="30" pInputText>
+        <label for="float-input">Primer apellido - *obligatorio</label>
+      </span>
+    </div>
+    <div style="margin-bottom: 15px;"
+      *ngIf="formularioUsuarioNew.get('ape1').hasError('required') && formularioUsuarioNew.get('ape1').dirty">
+      <p-message severity="error" text="Primer apellido obligatorio"></p-message>
+    </div>
+    <!-- SEGUNDO APELLIDO -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="ape2" id="ape2" type="text" size="30" pInputText>
+        <label for="float-input">Segundo apellido</label>
+      </span>
+    </div>
+    <!-- FECHA NACIMIENTO -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es"></p-calendar>
+        <label for="float-input">Fecha de nacimiento</label>
+      </span>
+      <div class="mt-2 mb-2" style="width: 200px;"
+        *ngIf="formularioUsuarioNew.get('fecha_nacimiento').hasError('required') && formularioUsuarioNew.get('fecha_nacimiento').touched ">
+        <p-message severity="error" text="Fecha de nacimiento obligatoria"></p-message>
+      </div>
+    </div>
+    <!-- LOGIN -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="login" id="login" type="text" size="30" pInputText>
+        <label for="float-input">Login</label>
+      </span>
+    </div>
+    <div style="margin-bottom: 15px;"
+      *ngIf="formularioUsuarioNew.get('login').hasError('required') && formularioUsuarioNew.get('login').dirty">
+      <p-message severity="error" text="Login obligatorio"></p-message>
+    </div>
+    <!-- PASS -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="pass" id="pass" type="password" size="30" pInputText>
+        <label for="float-input">Password</label>
+      </span>
+    </div>
+    <div style="margin-bottom: 15px;"
+      *ngIf="formularioUsuarioNew.get('pass').hasError('required') && formularioUsuarioNew.get('pass').dirty">
+      <p-message severity="error" text="Password obligatoria"></p-message>
+    </div>
+    <!-- EMAIL -->
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input class="form-control" formControlName="email" id="email" type="text" size="30" pInputText>
+        <label for="float-input">Email</label>
+      </span>
+    </div>
+    <!-- CONFIRMADO -->
+    <div class="form-group">
+      <p style="display: inline-block; margin-right: 2.8%;">Confirmado </p>
+      <input type="checkbox" formControlName="confirmado" class="form-check-input" id="confirmado">
+    </div>
+    <!-- TIPO DE USUARIO -->
+    <div class="form-group">
+      <p-listbox [options]="tipousuarios" optionLabel="desc" formControlName="id_tipo_usuario" id="id_tipo_usuario">
+      </p-listbox>
+    </div>
+    <div style="margin-bottom: 15px;"
+      *ngIf="formularioUsuarioNew.get('id_tipo_usuario').hasError('required') && formularioUsuarioNew.get('id_tipo_usuario').dirty">
+      <p-message severity="error" text="Debes elegir un tipo de usuario"></p-message>
+    </div>
+    <!-- BOTONES -->
+    <div class="form-group">
+      <div class="col-md-12 text-center">
+        <button type="submit" class=" btn btn-block mybtn btn-success tx-tfm" (click)="createUsuario()"
+          [disabled]="!formularioUsuarioNew.valid">Save</button>
+        <button class="btn btn-block mybtn btn-danger tx-tfm" [routerLink]="['/admin/mantenimiento/usuario']">Cancelar</button>
+      </div>
+    </div>
+  </form>
+</div>
