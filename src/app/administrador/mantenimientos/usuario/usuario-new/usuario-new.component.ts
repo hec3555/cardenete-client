@@ -42,7 +42,7 @@ export class UsuarioNewComponent implements OnInit {
       fecha_nacimiento: new FormControl('', [Validators.required]),
       login: new FormControl('', [Validators.required]),
       pass: new FormControl('', [Validators.required]),
-      email: new FormControl('', []),
+      email: new FormControl('', [Validators.email]),
       confirmado: new FormControl('', []),
       id_tipo_usuario: new FormControl('', [Validators.required])
     })

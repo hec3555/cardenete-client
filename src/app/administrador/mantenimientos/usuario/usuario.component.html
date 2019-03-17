@@ -3,7 +3,14 @@
     <i class="pi pi-plus-circle">Crear</i>
   </button>
 </div>
+  <!-- Diálogo de confirmación -->
+  <p-confirmDialog icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+  <!-- Mensajes (añadido/eliminado correctamente, etc) -->
+  <p-toast position="top-center"></p-toast>
+  
 <div class="table-responsive" style="width: 100%">
+
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -33,8 +40,7 @@
         <td>
           <i class="pi pi-eye acciones" [routerLink]="['/admin/mantenimiento/usuarioview/'+usuario.id]"></i>
           <i class="pi pi-pencil acciones" [routerLink]="['/admin/mantenimiento/usuarioedit/'+usuario.id]"></i>
-          <i class="pi pi-trash acciones"></i>
-          <!-- Llamar a la funcion de borrar pero mostrar confirmacion antes-->
+          <i class="pi pi-trash acciones" (click)="confirm(usuario)"></i>
         </td>
       </tr>
     </tbody>

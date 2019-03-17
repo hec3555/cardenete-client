@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>Crear nuevo usuario</h1>
   <form [formGroup]="formularioUsuarioNew">
     <!-- NOMBRE -->
     <div class="form-group">
@@ -6,10 +7,10 @@
         <input class="form-control" formControlName="nombre" id="nombre" type="text" size="30" pInputText>
         <label for="float-input">Nombre - *obligatorio</label>
       </span>
-    </div>
-    <div style="margin-bottom: 15px;"
-      *ngIf="formularioUsuarioNew.get('nombre').hasError('required') && formularioUsuarioNew.get('nombre').dirty">
-      <p-message severity="error" text="Nombre obligatorio"></p-message>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioNew.get('nombre').hasError('required') && formularioUsuarioNew.get('nombre').dirty">
+        <p-message severity="error" text="Nombre obligatorio"></p-message>
+      </div>
     </div>
     <!-- PRIMER APELLIDO -->
     <div class="form-group">
@@ -17,10 +18,10 @@
         <input class="form-control" formControlName="ape1" id="ape1" type="text" size="30" pInputText>
         <label for="float-input">Primer apellido - *obligatorio</label>
       </span>
-    </div>
-    <div style="margin-bottom: 15px;"
-      *ngIf="formularioUsuarioNew.get('ape1').hasError('required') && formularioUsuarioNew.get('ape1').dirty">
-      <p-message severity="error" text="Primer apellido obligatorio"></p-message>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioNew.get('ape1').hasError('required') && formularioUsuarioNew.get('ape1').dirty">
+        <p-message severity="error" text="Primer apellido obligatorio"></p-message>
+      </div>
     </div>
     <!-- SEGUNDO APELLIDO -->
     <div class="form-group">
@@ -32,10 +33,10 @@
     <!-- FECHA NACIMIENTO -->
     <div class="form-group">
       <span class="ui-float-label">
-        <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es" size="30"></p-calendar>
         <label for="float-input">Fecha de nacimiento</label>
       </span>
-      <div class="mt-2 mb-2" style="width: 200px;"
+      <div class="mt-2 mb-2" style="margin-top: 10px;"
         *ngIf="formularioUsuarioNew.get('fecha_nacimiento').hasError('required') && formularioUsuarioNew.get('fecha_nacimiento').touched ">
         <p-message severity="error" text="Fecha de nacimiento obligatoria"></p-message>
       </div>
@@ -46,10 +47,10 @@
         <input class="form-control" formControlName="login" id="login" type="text" size="30" pInputText>
         <label for="float-input">Login</label>
       </span>
-    </div>
-    <div style="margin-bottom: 15px;"
-      *ngIf="formularioUsuarioNew.get('login').hasError('required') && formularioUsuarioNew.get('login').dirty">
-      <p-message severity="error" text="Login obligatorio"></p-message>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioNew.get('login').hasError('required') && formularioUsuarioNew.get('login').dirty">
+        <p-message severity="error" text="Login obligatorio"></p-message>
+      </div>
     </div>
     <!-- PASS -->
     <div class="form-group">
@@ -57,10 +58,10 @@
         <input class="form-control" formControlName="pass" id="pass" type="password" size="30" pInputText>
         <label for="float-input">Password</label>
       </span>
-    </div>
-    <div style="margin-bottom: 15px;"
-      *ngIf="formularioUsuarioNew.get('pass').hasError('required') && formularioUsuarioNew.get('pass').dirty">
-      <p-message severity="error" text="Password obligatoria"></p-message>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioNew.get('pass').hasError('required') && formularioUsuarioNew.get('pass').dirty">
+        <p-message severity="error" text="Password obligatoria"></p-message>
+      </div>
     </div>
     <!-- EMAIL -->
     <div class="form-group">
@@ -68,20 +69,24 @@
         <input class="form-control" formControlName="email" id="email" type="text" size="30" pInputText>
         <label for="float-input">Email</label>
       </span>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioNew.get('email').hasError('email') && formularioUsuarioNew.get('email').dirty">
+        <p-message severity="error" text="Formato de email no válido"></p-message>
+      </div>
     </div>
     <!-- CONFIRMADO -->
     <div class="form-group">
       <p style="display: inline-block; margin-right: 2.8%;">Confirmado </p>
-      <input type="checkbox" formControlName="confirmado" class="form-check-input" id="confirmado">
+      <p-inputSwitch formControlName="confirmado" id="confirmado"></p-inputSwitch>
     </div>
     <!-- TIPO DE USUARIO -->
     <div class="form-group">
       <p-listbox [options]="tipousuarios" optionLabel="desc" formControlName="id_tipo_usuario" id="id_tipo_usuario">
       </p-listbox>
-    </div>
-    <div style="margin-bottom: 15px;"
-      *ngIf="formularioUsuarioNew.get('id_tipo_usuario').hasError('required') && formularioUsuarioNew.get('id_tipo_usuario').dirty">
-      <p-message severity="error" text="Debes elegir un tipo de usuario"></p-message>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioNew.get('id_tipo_usuario').hasError('required') && formularioUsuarioNew.get('id_tipo_usuario').dirty">
+        <p-message severity="error" text="Debes elegir un tipo de usuario"></p-message>
+      </div>
     </div>
     <!-- BOTONES -->
     <div class="form-group">
