@@ -24,6 +24,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { ChartModule } from 'primeng/chart';
 import { InputTextModule } from 'primeng/inputtext';
 import { ListboxModule } from 'primeng/listbox';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { ReactiveFormsModule, FormsModule } from '../../../node_modules/@angular/forms';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
@@ -79,6 +80,7 @@ import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuari
         InputTextModule,
         InputSwitchModule,
         ListboxModule,
+        SelectButtonModule,
         ConfirmDialogModule
     ],
     exports: [

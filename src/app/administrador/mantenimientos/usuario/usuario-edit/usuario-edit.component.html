@@ -1,16 +1,17 @@
 <div class="container">
-  <h1 *ngIf="usuarioSeleccionado">Editar usuario {{usuarioSeleccionado.nombre}} {{usuarioSeleccionado.ape1}} {{usuarioSeleccionado.ape2}}</h1>
+  <h1 *ngIf="usuarioSeleccionado">Editar usuario {{usuarioSeleccionado.nombre}} {{usuarioSeleccionado.ape1}}
+    {{usuarioSeleccionado.ape2}}</h1>
   <hr>
-  <form [formGroup]="formularioUsuarioEdit">
+  <form [formGroup]="formularioUsuarioEdit" class="p-grid">
     <!-- ID -->
-    <div class="form-group">
+    <div class="form-group p-col-3 p-sm-3">
       <span class="ui-float-label">
-        <input type="text" name="id" id="id" class="form-control col-md-1" formControlName="id" pInputText>
+        <input type="text" name="id" id="id" class="form-control" formControlName="id" pInputText>
         <label for="float-input">ID</label>
       </span>
     </div>
     <!-- NOMBRE -->
-    <div class="form-group">
+    <div class="form-group p-col-12">
       <span class="ui-float-label">
         <input class="form-control" formControlName="nombre" id="nombre" type="text" size="30" pInputText>
         <label for="float-input">Nombre - *obligatorio</label>
@@ -21,7 +22,7 @@
       </div>
     </div>
     <!-- PRIMER APELLIDO -->
-    <div class="form-group">
+    <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <input class="form-control" formControlName="ape1" id="ape1" type="text" size="30" pInputText>
         <label for="float-input">Primer apellido - *obligatorio</label>
@@ -32,14 +33,14 @@
       </div>
     </div>
     <!-- SEGUNDO APELLIDO -->
-    <div class="form-group">
+    <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <input class="form-control" formControlName="ape2" id="ape2" type="text" size="30" pInputText>
         <label for="float-input">Segundo apellido</label>
       </span>
     </div>
     <!-- FECHA NACIMIENTO -->
-    <div class="form-group">
+    <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es"></p-calendar>
         <label for="float-input">Fecha de nacimiento</label>
@@ -50,7 +51,7 @@
       </div>
     </div>
     <!-- FECHA ALTA -->
-    <div class="form-group">
+    <div class="form-group  p-col-12 p-md-6">
       <span class="ui-float-label">
         <p-calendar dateFormat="dd/mm/yy " formControlName="fecha_alta" [locale]="es"></p-calendar>
         <label for="float-input">Fecha de alta</label>
@@ -61,7 +62,7 @@
       </div>
     </div>
     <!-- LOGIN -->
-    <div class="form-group">
+    <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <input class="form-control" formControlName="login" id="login" type="text" size="30" pInputText>
         <label for="float-input">Login</label>
@@ -72,7 +73,7 @@
       </div>
     </div>
     <!-- PASS -->
-    <div class="form-group">
+    <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <input class="form-control" formControlName="pass" id="pass" type="password" size="30" pInputText>
         <label for="float-input">Password</label>
@@ -83,7 +84,7 @@
       </div>
     </div>
     <!-- EMAIL -->
-    <div class="form-group">
+    <div class="form-group p-col-12">
       <span class="ui-float-label">
         <input class="form-control" formControlName="email" id="email" type="text" size="30" pInputText>
         <label for="float-input">Email</label>
@@ -94,25 +95,28 @@
       </div>
     </div>
     <!-- CONFIRMADO -->
-    <div class="form-group">
+    <div class="form-group p-col-4">
       <p style="display: inline-block; margin-right: 2.8%;">Confirmado </p>
       <p-inputSwitch formControlName="confirmado" id="confirmado"></p-inputSwitch>
     </div>
     <!-- TIPO DE USUARIO -->
-    <div class="form-group">
-      <p-listbox [options]="tipousuarios" optionLabel="desc" formControlName="id_tipo_usuario" id="id_tipo_usuario">
-      </p-listbox>
+    <div class="form-group p-col-8">
+      <label for="tipousuarios" style="margin-right: 5%">Tipo de usuario:</label>
+      <p-selectButton [options]="tipousuarios" optionLabel="desc" formControlName="id_tipo_usuario"
+        id="id_tipo_usuario">
+      </p-selectButton>
       <div style="margin-top: 10px;"
         *ngIf="formularioUsuarioEdit.get('id_tipo_usuario').hasError('required') && formularioUsuarioEdit.get('id_tipo_usuario').dirty">
         <p-message severity="error" text="Debes elegir un tipo de usuario"></p-message>
       </div>
     </div>
     <!-- BOTONES -->
-    <div class="form-group">
-      <div class="col-md-12 text-center">
-        <button type="submit" class=" btn btn-block mybtn btn-success tx-tfm" (click)="editUsuario()"
-          [disabled]="!formularioUsuarioEdit.valid">Save</button>
-        <button class="btn btn-block mybtn btn-danger tx-tfm" [routerLink]="['/admin/mantenimiento/usuario']">Cancelar</button>
+    <div class="form-group p-col-12">
+      <div class="p-grid">
+        <button type="submit" class="btn btn-success p-col p-align-center" (click)="editUsuario()"
+          [disabled]="!formularioUsuarioEdit.valid">Guardar</button>
+        <button class="btn btn-danger p-col p-align-center"
+          [routerLink]="['/admin/mantenimiento/usuario']">Cancelar</button>
       </div>
     </div>
   </form>
