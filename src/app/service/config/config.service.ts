@@ -34,8 +34,6 @@ export class ConfigService {
         dateFormat: 'dd/mm/yy'
     };
 
-    
-
     // Para formatear fecha (de milisegundos a fecha / fecha+hora - en hora española)
     pipe = new DatePipe('en-US');
 

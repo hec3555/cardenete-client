@@ -1,8 +1,9 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TipousuarioService } from 'src/app/service/tipousuario/tipousuario.service';
+import { ConfigService } from 'src/app/service/config/config.service';
 @Component({
   selector: 'app-usuario-view',
   templateUrl: './usuario-view.component.html',
@@ -13,12 +14,14 @@ export class UsuarioViewComponent implements OnInit {
 
   constructor(
     private usuarioSQL: UsuarioService,
-    private tipousuarioService: TipousuarioService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private config: ConfigService
   ) { }
 
   usuario: UsuarioInterface;
+  fecha_alta: String;
+  fecha_nacimiento: String;
 
   ngOnInit() {
     this.route.params.subscribe(data => {
@@ -30,6 +33,7 @@ export class UsuarioViewComponent implements OnInit {
 
   putUsuario(usuario: UsuarioInterface): void {
     this.usuario = usuario;
+    this.fecha_nacimiento = this.config.miliToDate(new Date(this.usuario.fecha_nacimiento));
   }
 
 }
