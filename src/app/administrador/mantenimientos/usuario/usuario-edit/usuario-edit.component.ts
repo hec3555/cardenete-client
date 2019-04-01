@@ -31,7 +31,7 @@ export class UsuarioEditComponent implements OnInit {
   usuarioSeleccionado: UsuarioInterface;
 
   es: any;
-
+  
   ngOnInit() {
     this.es = this.config.formatoFechaDatePicker;
     this.route.params.subscribe(data => {

@@ -1,3 +1,10 @@
 <div class="container">
-  <h1>Ver usuario {{ usuario.nombre }} </h1>
+  <div *ngIf="usuario" class="p-grid">
+    <h1 class="p-col-12">{{ usuario.id }}. {{ usuario.nombre }} {{ usuario.ape1 }} {{ usuario.ape2 }} </h1>
+    <div id="account" class="p-col-12 p-grid">
+      <h3 class="p-sm-12 p-md-4">Nombre de usuario: {{ usuario.login }} </h3>
+      <h3 class="p-sm-12 p-md-4">Email: {{ usuario.email }} </h3>
+
+    </div>
+  </div>
 </div>
