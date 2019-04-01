@@ -34,6 +34,7 @@ export class UsuarioViewComponent implements OnInit {
   putUsuario(usuario: UsuarioInterface): void {
     this.usuario = usuario;
     this.fecha_nacimiento = this.config.miliToDate(new Date(this.usuario.fecha_nacimiento));
+    this.fecha_alta = this.config.miliToDateTime(new Date(this.usuario.fecha_alta));
   }
 
 }

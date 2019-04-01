@@ -1,10 +1,29 @@
 <div class="container">
   <div *ngIf="usuario" class="p-grid">
-    <h1 class="p-col-12">{{ usuario.id }}. {{ usuario.nombre }} {{ usuario.ape1 }} {{ usuario.ape2 }} </h1>
-    <div id="account" class="p-col-12 p-grid">
-      <h3 class="p-sm-12 p-md-4">Nombre de usuario: {{ usuario.login }} </h3>
-      <h3 class="p-sm-12 p-md-4">Email: {{ usuario.email }} </h3>
-
+    <h1 class="p-col-12">{{ usuario.nombre }} {{ usuario.ape1 }} {{ usuario.ape2 }} - {{usuario.id_tipo_usuario.desc}}
+    </h1>
+    <div class="p-col-12 p-grid">
+      <!-- LOGIN -->
+      <div class="p-col-6">
+        <label class="title">Nombre de usuario: </label> <label class="value"> {{ usuario.login }} </label>
+      </div>
+      <!-- EMAIL -->
+      <div class="p-col-6" *ngIf="usuario.email">
+        <label class="title">Email: </label> <label class="value"> {{ usuario.email }} </label>
+      </div>
+      <!-- FECHA ALTA -->
+      <div class="p-col-6">
+        <label class="title">Fecha de alta: </label> <label class="value"> {{ fecha_alta }} </label>
+      </div>
+      <!-- FECHA NACIMIENTO -->
+      <div class="p-col-6">
+        <label class="title">Fecha de nacimiento: </label> <label class="value"> {{ fecha_nacimiento }} </label>
+      </div>
+      <!-- CONFIRMADO -->
+      <div class="form-group p-col-4">
+        <label class="title">Confirmado </label>
+        <p-inputSwitch [(ngModel)]="usuario.confirmado" id="confirmado" disabled></p-inputSwitch>
+      </div>
     </div>
   </div>
 </div>

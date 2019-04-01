@@ -1,0 +1,10 @@
+label.title{
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 20px;
+}
+
+label.value{
+    font-size: 1em;
+    color: blue;
+}
