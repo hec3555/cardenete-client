@@ -1,6 +1,8 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-  <a class="navbar-brand" href="#"><img id="escudo" style="width: 30px;" src="../../assets/images/Escudo_de_Cardenete.svg" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#"><img id="escudo" style="width: 30px;"
+      src="../../assets/images/Escudo_de_Cardenete.svg" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -14,7 +16,8 @@
       </li>
       <!-- DESPLEGABLE ADMINISTRAR -->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Administrar
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -29,5 +32,16 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+
+    <!-- PERFIL DE USUARIO -->
+    <div class="userProfile">
+      <div class="nav-item dropdown">
+        <p-button class="nav-link dropdown-toggle ui-button-success ui-button-rounded" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" label="{{ usuarioSession.login }} - {{ usuarioSession.id_tipo_usuario.desc }}"></p-button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>

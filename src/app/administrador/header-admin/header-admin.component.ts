@@ -13,8 +13,11 @@ export class HeaderAdminComponent implements OnInit {
     private login: LoginService,
     private router: Router
     ) { }
+  
+  usuarioSession: UsuarioInterface;
 
   ngOnInit() {
+    this.usuarioSession = this.login.usuario;
   }
 
 
