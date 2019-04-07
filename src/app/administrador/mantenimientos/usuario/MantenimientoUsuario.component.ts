@@ -1,12 +1,12 @@
-import { ConfigService } from './../../../service/config/config.service';
+import { ConfigService } from '../../../service/config/config.service';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 import { Message, MessageService, ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.css'],
+  templateUrl: './MantenimientoUsuario.component.html',
+  styleUrls: ['./MantenimientoUsuario.component.css'],
   providers: [MessageService, ConfirmationService]
 })
 export class MantenimientoUsuarioComponent implements OnInit {

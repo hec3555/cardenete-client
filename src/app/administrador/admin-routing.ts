@@ -11,7 +11,7 @@ import { ImagenComponent } from './mantenimientos/imagen/imagen.component';
 import { SeccionComponent } from './mantenimientos/seccion/seccion.component';
 import { SugerenciaComponent } from './mantenimientos/sugerencia/sugerencia.component';
 import { TipousuarioComponent } from './mantenimientos/tipousuario/tipousuario.component';
-import { MantenimientoUsuarioComponent } from './mantenimientos/usuario/usuario.component';
+import { MantenimientoUsuarioComponent } from './mantenimientos/usuario/MantenimientoUsuario.component';
 import { Roles } from '../enum/roles.enum';
 import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
 import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';

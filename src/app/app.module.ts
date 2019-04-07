@@ -6,10 +6,8 @@ import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth-components/login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AdministradorComponent } from './administrador/administrador.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdministradorModule } from './administrador/administrador.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
@@ -17,14 +15,22 @@ import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 import { ServiceModule } from './service/service.module';
 import { MessageModule } from 'primeng/message';
+import { AdministradorComponent } from './administrador/administrador.component';
+import { AdministradorModule } from './administrador/administrador.module';
+import { WebappComponent } from './webapp/webapp.component';
+import { WebappModule } from './webapp/webapp.module';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
+    PageNotFoundComponent,
     AdministradorComponent,
-    PageNotFoundComponent
+    UsuarioComponent,
+    WebappComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +39,8 @@ import { MessageModule } from 'primeng/message';
     FormsModule,
     ReactiveFormsModule,
     AdministradorModule,
+    WebappModule,
+    UsuarioModule,
     ServiceModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
