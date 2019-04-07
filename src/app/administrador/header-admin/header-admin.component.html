@@ -8,23 +8,23 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link">Cardenete</a>
+      <li class="nav-item">
+        <a class="nav-link" active>Cardenete</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/admin/inicio']">Home</a>
+        <a class="nav-link" [routerLink]="['/admin/inicio']" [routerLinkActive]="['active']">Inicio</a>
       </li>
       <!-- DESPLEGABLE ADMINISTRAR -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          aria-haspopup="true" aria-expanded="false" [ngClass]="{'active': this.router.url.includes('admin/mantenimiento/')}">
           Administrar
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['mantenimiento/usuario']">Usuarios</a>
-          <a class="dropdown-item" [routerLink]="['mantenimiento/tipousuario']">Tipo de usuarios</a>
+          <a class="dropdown-item" [routerLink]="['mantenimiento/usuario']" [routerLinkActive]="['active']">Usuarios</a>
+          <a class="dropdown-item" [routerLink]="['mantenimiento/tipousuario']" [routerLinkActive]="['active']">Tipo de usuarios</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" [routerLink]="['mantenimiento/sugerencia']">Sugerencias</a>
+          <a class="dropdown-item" [routerLink]="['mantenimiento/sugerencia']" [routerLinkActive]="['active']">Sugerencias</a>
         </div>
       </li>
     </ul>

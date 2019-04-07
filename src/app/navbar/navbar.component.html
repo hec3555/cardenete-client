@@ -1,31 +1,34 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-  <a class="navbar-brand" href="#"><img id="escudo" style="width: 30px;" src="../../assets/images/Escudo_de_Cardenete.svg" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#"><img id="escudo" style="width: 30px;"
+      src="../../assets/images/Escudo_de_Cardenete.svg" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Cardenete</a>
+        <a class="nav-link">Cardenete</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Alcaldia
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Saludo</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Corporacion municipal</a>
-        </div>
+        <a class="nav-link" [routerLink]="['/webapp/home']" routerLinkActive="active">Home</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+
+    <!-- PERFIL DE USUARIO -->
+    <div class="userProfile" *ngIf="usuarioSession">
+      <div class="nav-item dropdown">
+        <p-button class="nav-link dropdown-toggle ui-button-success ui-button-rounded" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" label="{{ usuarioSession.login }} - {{ usuarioSession.id_tipo_usuario.desc }}"></p-button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>

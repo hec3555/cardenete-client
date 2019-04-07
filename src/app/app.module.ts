@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth-components/login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +25,6 @@ import { UsuarioModule } from './usuario/usuario.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent,
     PageNotFoundComponent,
     AdministradorComponent,
     UsuarioComponent,

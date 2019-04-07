@@ -1,12 +1,19 @@
+import { WebappComponent } from './webapp.component';
 import { HomeComponent } from "./home/home.component";
 import { Routes } from '@angular/router';
 
 
 
-// ESTAS RUTAS SERÁN PARA GESTIONAR COSAS DEL PROPIO USUARIO COMO LOGEADO (su perfil de usu, cambio de pass, fotos suyas, etc.)
+// ESTAS RUTAS SERÁN PARA LA WEB EN SÍ, TODOS PODRÁN ACCEDER A ELLA POR LO CUAL NO TIENE CANLOAD NI CANACTIVATE
 export const routes: Routes = [
     {
-        path: "home",
-        component: HomeComponent
+        path: "webapp",
+        component: WebappComponent,
+        children: [
+            {
+                path: "home",
+                component: HomeComponent
+            }
+        ]
     }
 ];
