@@ -12,6 +12,19 @@ export class ArticuloService {
     getAll(): Observable<ArticuloInterface[]> {
         return this.http.get<ArticuloInterface[]>(`${this.config.api}articulos`, this.config.header);
     }
+
+    getAllBySeccion(idSeccion: number): Observable<ArticuloInterface[]> {
+        return this.http.get<ArticuloInterface[]>(`${this.config.api}articulos/seccion/${idSeccion}`, this.config.header);
+    }
+
+    getAllByUsuario(idUsuario: number): Observable<ArticuloInterface[]> {
+        return this.http.get<ArticuloInterface[]>(`${this.config.api}articulos/usuario/${idUsuario}`, this.config.header);
+    }
+
+    getAllBySeccionAndUsuario(idSeccion: number, idUsuario: number): Observable<ArticuloInterface[]> {
+        return this.http.get<ArticuloInterface[]>(`${this.config.api}articulos/seccion/${idSeccion}/usuario/${idUsuario}`, this.config.header);
+    }
+
     getById(id: number): Observable<ArticuloInterface[]>{
         return this.http.get<ArticuloInterface[]>(`${this.config.api}articulos/${id}`, this.config.header);
     }

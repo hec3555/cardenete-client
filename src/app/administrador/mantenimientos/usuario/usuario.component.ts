@@ -9,7 +9,7 @@ import { Message, MessageService, ConfirmationService } from 'primeng/api';
   styleUrls: ['./usuario.component.css'],
   providers: [MessageService, ConfirmationService]
 })
-export class UsuarioComponent implements OnInit {
+export class MantenimientoUsuarioComponent implements OnInit {
 
   constructor(
     private sql: UsuarioService,

@@ -1,5 +1,3 @@
-import { CanLoad } from '@angular/router';
-// import { HelpComponent } from './help/help.component';
 import { AuthAdmin } from '../service/login/auth.service';
 import { AdministradorComponent } from "./administrador.component";
 import { IndexadminComponent } from "./indexadmin/indexadmin.component";
@@ -13,7 +11,7 @@ import { ImagenComponent } from './mantenimientos/imagen/imagen.component';
 import { SeccionComponent } from './mantenimientos/seccion/seccion.component';
 import { SugerenciaComponent } from './mantenimientos/sugerencia/sugerencia.component';
 import { TipousuarioComponent } from './mantenimientos/tipousuario/tipousuario.component';
-import { UsuarioComponent } from './mantenimientos/usuario/usuario.component';
+import { MantenimientoUsuarioComponent } from './mantenimientos/usuario/usuario.component';
 import { Roles } from '../enum/roles.enum';
 import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
 import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
@@ -79,7 +77,7 @@ export const routes: Routes = [
                     /* MANTENIMIENTO USUARIO */
                     {
                         path: "usuario",
-                        component: UsuarioComponent,
+                        component: MantenimientoUsuarioComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN },
                     },
