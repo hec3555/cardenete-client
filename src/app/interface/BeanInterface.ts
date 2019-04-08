@@ -1,7 +1,7 @@
 interface ArticuloInterface{
     id: number;
     titulo: String;
-    descripcion: String;
+    desc: String;
     fecha: Date;
     articulo: String;
     etiquetas: String;

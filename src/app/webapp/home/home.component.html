@@ -1,3 +1,12 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div *ngFor="let anuncio of anuncios">
+    <div>
+      <h1> {{ anuncio.titulo }} </h1>
+      <p> {{ anuncio.desc }} </p>
+      <p-button *ngIf="canEdit()" class="ui-button-success ui-button-rounded" role="button" aria-haspopup="true"
+        aria-expanded="false" label="Editar anuncio" [routerLink]="['/admin/mantenimiento/articulo/'+anuncio.id]">
+      </p-button>
+    </div>
+  </div>
+
+</div>
