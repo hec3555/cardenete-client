@@ -28,6 +28,10 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { AdministradorModule } from '../administrador/administrador.module';
+import { UsuarioModule } from '../usuario/usuario.module';
+
+
 
 
 @NgModule({
@@ -43,6 +47,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
         ConfirmDialogModule,
         InputSwitchModule,
         SelectButtonModule,
+        AdministradorModule,
+        UsuarioModule,
         ListboxModule,
         InputTextModule,
         ChartModule,

@@ -8,27 +8,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" active>Cardenete</a>
+      <li class="nav-item active">
+        <a class="nav-link">Cardenete</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/admin/inicio']" [routerLinkActive]="['active']">Inicio</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/webapp/home']" [routerLinkActive]="['active']">Home</a>
-      </li>
-      <!-- DESPLEGABLE ADMINISTRAR -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" [ngClass]="{'active': this.router.url.includes('admin/mantenimiento/')}">
-          Administrar
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/admin/mantenimiento/usuario']" [routerLinkActive]="['active']">Usuarios</a>
-          <a class="dropdown-item" [routerLink]="['/admin/mantenimiento/tipousuario']" [routerLinkActive]="['active']">Tipo de usuarios</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" [routerLink]="['/admin/mantenimiento/sugerencia']" [routerLinkActive]="['active']">Sugerencias</a>
-        </div>
+        <a class="nav-link" [routerLink]="['/webapp/home']" routerLinkActive="active">Home</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -37,7 +21,7 @@
     </form>
 
     <!-- PERFIL DE USUARIO -->
-    <div class="userProfile">
+    <div class="userProfile" *ngIf="usuarioSession">
       <div class="nav-item dropdown">
         <p-button class="nav-link dropdown-toggle ui-button-success ui-button-rounded" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" label="{{ usuarioSession.login }} - {{ usuarioSession.id_tipo_usuario.desc }}"></p-button>
