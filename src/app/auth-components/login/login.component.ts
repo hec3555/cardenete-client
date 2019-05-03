@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           if(usuario.id_tipo_usuario.id == Roles.ADMIN){
             this.router.navigate(['/admin/inicio']);
           }else{
-            // this.router.navigate(['usuario/inicio']);
+            this.router.navigate(['/webapp/home']);
           }
         })
       },

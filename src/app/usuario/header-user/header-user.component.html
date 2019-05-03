@@ -21,7 +21,7 @@
     </form>
 
     <!-- PERFIL DE USUARIO -->
-    <div class="userProfile" *ngIf="usuarioSession">
+    <div class="userProfile" *ngIf="usuarioSession; else login">
       <div class="nav-item dropdown">
         <p-button class="nav-link dropdown-toggle ui-button-success ui-button-rounded" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" label="{{ usuarioSession.login }} - {{ usuarioSession.id_tipo_usuario.desc }}"></p-button>
@@ -30,5 +30,11 @@
         </div>
       </div>
     </div>
+    <ng-template #login>
+        <div class="nav-item dropdown">
+            <p-button class="nav-link ui-button-success ui-button-rounded" id="navbarDropdown" role="button"
+              aria-haspopup="true" aria-expanded="false" label="Login" [routerLink]="['/login']"></p-button>
+          </div>
+    </ng-template>
   </div>
 </nav>
