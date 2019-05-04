@@ -25,8 +25,8 @@ export class ArticuloService {
         return this.http.get<ArticuloInterface[]>(`${this.config.api}articulos/seccion/${idSeccion}/usuario/${idUsuario}`, this.config.header);
     }
 
-    getById(id: number): Observable<ArticuloInterface[]>{
-        return this.http.get<ArticuloInterface[]>(`${this.config.api}articulos/${id}`, this.config.header);
+    getById(id: number): Observable<ArticuloInterface>{
+        return this.http.get<ArticuloInterface>(`${this.config.api}articulos/${id}`, this.config.header);
     }
     update(articulo: ArticuloInterface): Observable<ResponseInterface> {
         return this.http.put<ResponseInterface>(`${this.config.api}articulos`, articulo, this.config.header);

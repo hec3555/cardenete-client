@@ -5,8 +5,8 @@ interface ArticuloInterface{
     fecha: Date;
     articulo: String;
     etiquetas: String;
-    seccion: SeccionInterface;
-    usuario: UsuarioInterface;
+    id_seccion: SeccionInterface;
+    id_usuario: UsuarioInterface;
 }
 
 interface CategoriaInterface{

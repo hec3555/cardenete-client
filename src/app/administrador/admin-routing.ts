@@ -16,6 +16,7 @@ import { Roles } from '../enum/roles.enum';
 import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
 import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
 import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
+import { ArticuloEditComponent } from './mantenimientos/articulo/articulo-edit/articulo-edit.component';
 
 export const routes: Routes = [
     {
@@ -36,6 +37,12 @@ export const routes: Routes = [
                     {
                         path: "articulo",
                         component: ArticuloComponent,
+                        canLoad: [AuthAdmin],
+                        data: { id: Roles.ADMIN }
+                    },
+                    {
+                        path:"articuloedit/:id",
+                        component: ArticuloEditComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },

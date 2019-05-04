@@ -9,17 +9,20 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { DialogModule } from 'primeng/dialog';
-import { ToastModule } from 'primeng/toast';
 import { ServiceModule } from './service/service.module';
-import { MessageModule } from 'primeng/message';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { AdministradorModule } from './administrador/administrador.module';
 import { WebappComponent } from './webapp/webapp.component';
 import { WebappModule } from './webapp/webapp.module';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioModule } from './usuario/usuario.module';
+
+/* PRIMENG */
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
+import { MessageModule } from 'primeng/message';
+import { EditorModule } from 'primeng/editor';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     OverlayPanelModule,
     DialogModule,
     ToastModule,
-    MessageModule
+    MessageModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

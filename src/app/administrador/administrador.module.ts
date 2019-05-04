@@ -28,6 +28,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ReactiveFormsModule, FormsModule } from '../../../node_modules/@angular/forms';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { EditorModule } from 'primeng/editor';
+
 
 
 //mantenimientos
@@ -41,6 +43,7 @@ import { MantenimientoUsuarioComponent } from './mantenimientos/usuario/Mantenim
 import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usuario-edit.component';
 import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
 import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
+import { ArticuloEditComponent } from './mantenimientos/articulo/articulo-edit/articulo-edit.component';
 
 
 @NgModule({
@@ -57,7 +60,8 @@ import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuari
         MantenimientoUsuarioComponent,
         UsuarioEditComponent,
         UsuarioViewComponent,
-        UsuarioNewComponent
+        UsuarioNewComponent,
+        ArticuloEditComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
@@ -81,7 +85,8 @@ import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuari
         InputSwitchModule,
         ListboxModule,
         SelectButtonModule,
-        ConfirmDialogModule
+        ConfirmDialogModule,
+        EditorModule
     ],
     exports: [
         HeaderAdminComponent

@@ -28,10 +28,11 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { EditorModule } from 'primeng/editor';
+
+
 import { AdministradorModule } from '../administrador/administrador.module';
 import { UsuarioModule } from '../usuario/usuario.module';
-
-
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { UsuarioModule } from '../usuario/usuario.module';
         OverlayPanelModule,
         DialogModule,
         ToastModule,
-        MessageModule
+        MessageModule,
+        EditorModule
     ],
     exports: [
         NavbarComponent
