@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConfigService } from 'src/app/service/config/config.service';
@@ -22,7 +23,8 @@ export class ArticuloEditComponent implements OnInit {
     private seccionService: SeccionService,
     private route: ActivatedRoute,
     private router: Router,
-    private config: ConfigService
+    private config: ConfigService,
+    private _location: Location
   ) { }
 
   secciones: SeccionInterface[];
@@ -87,7 +89,7 @@ export class ArticuloEditComponent implements OnInit {
       (response: ResponseInterface) => {
         this.showTooltip('Articulo editado correctamente', '', `${response.msg}`)
         this.articuloService.reloadArticulos.emit();
-        this.router.navigate(['..'], {relativeTo: this.route});
+        this._location.back();
       },
       (error: ResponseInterface) => {
         this.showTooltip('error', '', `Error editando el usuario`)
@@ -109,6 +111,10 @@ export class ArticuloEditComponent implements OnInit {
         this.secciones = seccion;
       }
     )
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   showTooltip(type: string, title: string, desc: string) {

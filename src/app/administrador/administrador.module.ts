@@ -45,6 +45,8 @@ import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usua
 import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
 import { ArticuloEditComponent } from './mantenimientos/articulo/articulo-edit/articulo-edit.component';
 
+/* FROALA EDITOR */
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
     declarations: [
@@ -86,7 +88,9 @@ import { ArticuloEditComponent } from './mantenimientos/articulo/articulo-edit/a
         ListboxModule,
         SelectButtonModule,
         ConfirmDialogModule,
-        EditorModule
+        EditorModule,
+        FroalaEditorModule.forRoot(),
+        FroalaViewModule.forRoot()
     ],
     exports: [
         HeaderAdminComponent

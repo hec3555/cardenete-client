@@ -24,6 +24,9 @@ import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { EditorModule } from 'primeng/editor';
 
+/* FROALA EDITOR */
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +52,9 @@ import { EditorModule } from 'primeng/editor';
     DialogModule,
     ToastModule,
     MessageModule,
-    EditorModule
+    EditorModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
