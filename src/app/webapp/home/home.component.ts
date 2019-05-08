@@ -48,9 +48,9 @@ export class HomeComponent implements OnInit {
   }
 
   formatDate(fecha: string | number, time: boolean) {
-    if(time === true){
+    if (time === true) {
       return this.config.miliToDateTime(new Date(fecha));
-    }else{
+    } else {
       return this.config.miliToDate(new Date(fecha));
     }
   }
@@ -63,15 +63,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  canEdit(){
-    if(this.usuarioSession){
-      if(this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN){
-        return true;
-      }else{
-        return false;
-      }
-    }else{
+  canEdit() {
+    if (this.usuarioSession && this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN) {
+      return true;
+    } else {
       return false;
     }
+
   }
 }
