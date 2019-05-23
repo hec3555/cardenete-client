@@ -1,16 +1,18 @@
-
 <div class="container">
   <h1 id="tituloApartadoAnuncios">Entérate de lo último en Cardenete</h1>
-  <div *ngFor="let anuncio of anuncios">
-    <div class="anuncio">
-      <h3 class="titulosAnuncios">
-        <span class="p-col-10 tituloAnuncio">{{ anuncio.titulo }}</span>
-        <i *ngIf="usuarioSession && canEdit()" style="font-size: 25px;" class="pi pi-pencil acciones p-col-2 editIcon" [routerLink]="['/admin/mantenimiento/articuloedit/'+anuncio.id]"></i>
-      </h3>
-      <p> {{ anuncio.desc }} </p>
-      <p-button class="ui-button-success ui-button-rounded" role="button" aria-haspopup="true"
-        aria-expanded="false" id="verAnuncio" label="Ver anuncio" [routerLink]="['/webapp/articuloview/'+anuncio.id]">
-      </p-button>
+  <p-scrollPanel styleClass="home-anuncios-bar">
+    <div *ngFor="let anuncio of anuncios">
+      <div class="anuncio">
+        <h3 class="titulosAnuncios">
+          <span class="p-col-10 tituloAnuncio">{{ anuncio.titulo }}</span>
+          <i *ngIf="usuarioSession && canEdit()" style="font-size: 25px;" class="pi pi-pencil acciones p-col-2 editIcon"
+            [routerLink]="['/admin/mantenimiento/articuloedit/'+anuncio.id]"></i>
+        </h3>
+        <p> {{ anuncio.desc }} </p>
+        <p-button class="ui-button-success ui-button-rounded" role="button" aria-haspopup="true" aria-expanded="false"
+          id="verAnuncio" label="Ver anuncio" [routerLink]="['/webapp/articuloview/'+anuncio.id]">
+        </p-button>
+      </div>
     </div>
-  </div>
+  </p-scrollPanel>
 </div>

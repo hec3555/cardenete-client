@@ -26,6 +26,7 @@ import { EditorModule } from 'primeng/editor';
 
 /* FROALA EDITOR */
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     PageNotFoundComponent,
     AdministradorComponent,
     UsuarioComponent,
-    WebappComponent
+    WebappComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

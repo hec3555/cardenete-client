@@ -3,3 +3,19 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
+
+/* Barra de scroll para el div de los anuncios del home */
+.home-anuncios-bar .ui-scrollpanel-wrapper {
+    border-right: 9px solid #f4f4f4;
+}
+    
+.home-anuncios-bar .ui-scrollpanel-bar {
+    background-color: rgb(90, 245, 137);
+    opacity: 1;
+    transition: background-color .3s;
+}
+    
+.home-anuncios-bar .ui-scrollpanel-bar:hover {
+    background-color: rgb(49, 146, 78);;
+}
