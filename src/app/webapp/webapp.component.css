@@ -1,0 +1,11 @@
+.webapp-body{
+    background: url("/assets/images/monte.jpg") no-repeat top left;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+@media (max-width: 768px){
+    .webapp-body{
+        background: url("/assets/images/fondo-movil.jpg") no-repeat top left;
+    }
+}
