@@ -1,6 +1,7 @@
 .admin-body{
     background-size: 100% 100%;
     background-attachment: fixed;
+    height: auto;
 }
 
 @media (max-width: 768px){
