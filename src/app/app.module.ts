@@ -27,6 +27,7 @@ import { EditorModule } from 'primeng/editor';
 /* FROALA EDITOR */
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
+
 @NgModule({
   declarations: [
     AppComponent,
