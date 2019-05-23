@@ -34,13 +34,15 @@ import { EditorModule } from 'primeng/editor';
 import { AdministradorModule } from '../administrador/administrador.module';
 import { UsuarioModule } from '../usuario/usuario.module';
 import { ArticuloViewComponent } from '../administrador/mantenimientos/articulo/articulo-view/articulo-view.component';
+import { InformacionComponent } from './informacion/informacion.component';
 
 
 @NgModule({
     declarations: [
         HomeComponent,
         NavbarComponent,
-        ArticuloViewComponent
+        ArticuloViewComponent,
+        InformacionComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
