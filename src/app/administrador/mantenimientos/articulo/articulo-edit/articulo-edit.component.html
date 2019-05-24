@@ -56,7 +56,7 @@
         </span>
       </div>
       <!-- USUARIO -->
-      <div class="form-group p-col-8">
+      <div class="form-group p-col-8" *ngIf="canShowUsuarios()">
         <label for="usuarios" style="margin-right: 5%">Usuario:</label>
         <p-selectButton [options]="usuarios" optionLabel="nombre" formControlName="id_usuario"
           id="id_usuario">

@@ -5,8 +5,8 @@
       <div class="anuncio">
         <h3 class="titulosAnuncios">
           <span class="p-col-10 tituloAnuncio">{{ anuncio.titulo }}</span>
-          <i *ngIf="usuarioSession && canEdit()" style="font-size: 25px;" class="pi pi-pencil acciones p-col-2 editIcon"
-            [routerLink]="['/admin/mantenimiento/articuloedit/'+anuncio.id]"></i>
+          <i *ngIf="usuarioSession && canEdit(anuncio.id_usuario.id)" style="font-size: 25px;" class="pi pi-pencil acciones p-col-2 editIcon"
+            (click)="goToEdit(anuncio.id)"></i>
         </h3>
         <p> {{ anuncio.desc }} </p>
         <p-button class="ui-button-success ui-button-rounded" role="button" aria-haspopup="true" aria-expanded="false"

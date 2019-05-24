@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     private messageService: MessageService,
     private router: Router,
     private config: ConfigService,
-    private login: LoginService,
+    private login: LoginService
   ) {
     articuloSQL.reloadArticulos.subscribe(
       () => this.getData()
@@ -63,12 +63,19 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  canEdit() {
-    if (this.usuarioSession && this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN) {
+  canEdit(idArticulo) {
+    if (this.usuarioSession && (this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN || this.usuarioSession.id == idArticulo)) {
       return true;
     } else {
       return false;
     }
+  }
 
+  goToEdit(idAnuncio){
+    if(this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN){
+      this.router.navigate(['/admin/mantenimiento/articuloedit/'+idAnuncio]);
+    }else{
+      this.router.navigate(['/user/articuloedit/'+idAnuncio]);
+    }
   }
 }

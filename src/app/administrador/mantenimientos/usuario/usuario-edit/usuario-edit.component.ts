@@ -84,10 +84,11 @@ export class UsuarioEditComponent implements OnInit {
     console.log(usuario);
     if(!usuario.pass){
       usuario.pass = '';
+    }else{
+      usuario.pass = sha256(usuario.pass.toString())
     }
     usuario.id = this.usuarioSeleccionado.id;
 
-    usuario.pass = sha256(usuario.pass.toString())
 
     this.usuarioSQL.update(usuario).subscribe(
       (response: ResponseInterface) => {

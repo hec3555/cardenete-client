@@ -7,6 +7,8 @@ import { ArticuloService } from 'src/app/service/articulo/articulo.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 import { SeccionService } from 'src/app/service/seccion/seccion.service';
+import { LoginService } from 'src/app/service/login/login.service';
+import { Roles } from '../../../../enum/roles.enum';
 
 @Component({
   selector: 'app-articulo-edit',
@@ -24,9 +26,11 @@ export class ArticuloEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private config: ConfigService,
-    private _location: Location
+    private _location: Location,
+    private login: LoginService
   ) { }
 
+  usuarioSession: UsuarioInterface;
   secciones: SeccionInterface[];
   seccionSeleccionada: SeccionInterface;
   usuarios: UsuarioInterface[];
@@ -45,6 +49,7 @@ export class ArticuloEditComponent implements OnInit {
       )
     })
 
+    this.usuarioSession = this.login.usuario;
     this.getSecciones();
     this.getUsuarios();
 
@@ -98,11 +103,13 @@ export class ArticuloEditComponent implements OnInit {
   }
 
   getUsuarios(): void{
-    this.usuarioService.getAll().subscribe(
-      (usuario: UsuarioInterface[]) => {
-        this.usuarios = usuario;
-      }
-    )
+    if(this.canShowUsuarios()){
+      this.usuarioService.getAll().subscribe(
+        (usuario: UsuarioInterface[]) => {
+          this.usuarios = usuario;
+        }
+      )
+    }
   }
 
   getSecciones(): void{
@@ -117,6 +124,14 @@ export class ArticuloEditComponent implements OnInit {
     this._location.back();
   }
 
+  canShowUsuarios(){
+    if(this.usuarioSession.id_tipo_usuario.id == Roles.ADMIN){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   showTooltip(type: string, title: string, desc: string) {
     this.messageService.add({
       severity: `${type}`,
@@ -124,5 +139,6 @@ export class ArticuloEditComponent implements OnInit {
       detail: `${desc}`
     })
   }
+
 
 }
