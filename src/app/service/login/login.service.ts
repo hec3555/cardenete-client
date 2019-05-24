@@ -10,8 +10,8 @@ export class LoginService {
 
     usuario: UsuarioInterface;
 
-    login(login: string, pass: string): Observable<UsuarioInterface> {
-        return this.http.get<UsuarioInterface>(`${this.configAPI.api}login/${login}/${pass}`, this.configAPI.header);
+    login(usuario: UsuarioInterface): Observable<UsuarioInterface> {
+        return this.http.post<UsuarioInterface>(`${this.configAPI.api}login`, usuario, this.configAPI.header);
     }
 
     check(): Observable<UsuarioInterface> {

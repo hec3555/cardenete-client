@@ -5,6 +5,9 @@ import { Roles } from '../../enum/roles.enum';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 
+/* SHA256 */
+import { sha256, sha224 } from 'js-sha256';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,8 +30,23 @@ export class LoginComponent implements OnInit {
   }
 
   login(login: string, pass: string) {
+    let usuario: UsuarioInterface = {
+      id: null,
+      nombre: '',
+      ape1: '',
+      ape2: '',
+      login: login,
+      pass: sha256(pass),
+      fecha_nacimiento: null,
+      fecha_alta: null,
+      email: '',
+      token: '',
+      confirmado: false,
+      id_tipo_usuario: null
+    };
+
     this.loginService
-      .login(login, pass)
+      .login(usuario)
       .subscribe(data => {
         this.loginService.check().subscribe((usuario: UsuarioInterface) => {
           this.loginService.setUsuario(usuario);

@@ -6,6 +6,9 @@ import { TipousuarioService } from 'src/app/service/tipousuario/tipousuario.serv
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ConfigService } from 'src/app/service/config/config.service';
 
+/* SHA256 */
+import { sha256, sha224 } from 'js-sha256';
+
 @Component({
   selector: 'app-usuario-edit',
   templateUrl: './usuario-edit.component.html',
@@ -83,6 +86,8 @@ export class UsuarioEditComponent implements OnInit {
       usuario.pass = '';
     }
     usuario.id = this.usuarioSeleccionado.id;
+
+    usuario.pass = sha256(usuario.pass.toString())
 
     this.usuarioSQL.update(usuario).subscribe(
       (response: ResponseInterface) => {

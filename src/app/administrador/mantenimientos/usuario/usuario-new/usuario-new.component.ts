@@ -6,6 +6,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigService } from 'src/app/service/config/config.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+/* SHA256 */
+import { sha256, sha224 } from 'js-sha256';
+
 @Component({
   selector: 'app-usuario-new',
   templateUrl: './usuario-new.component.html',
@@ -54,6 +57,8 @@ export class UsuarioNewComponent implements OnInit {
     console.log(usuario);
     usuario.id = 0;
     usuario.fecha_alta = new Date();
+
+    usuario.pass = sha256(usuario.pass.toString())
 
     this.usuarioSQL.create(usuario).subscribe(
       (response: ResponseInterface) => {
