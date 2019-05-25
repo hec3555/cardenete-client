@@ -1,7 +1,7 @@
+import { AnuncioViewComponent } from './home/anuncio-view/anuncio-view.component';
 import { WebappComponent } from './webapp.component';
 import { HomeComponent } from "./home/home.component";
 import { Routes } from '@angular/router';
-import { ArticuloViewComponent } from '../administrador/mantenimientos/articulo/articulo-view/articulo-view.component';
 
 
 
@@ -16,8 +16,8 @@ export const routes: Routes = [
                 component: HomeComponent
             },
             {
-                path:"articuloview/:id",
-                component: ArticuloViewComponent
+                path:"anuncioview/:id",
+                component: AnuncioViewComponent
             },
         ]
     }

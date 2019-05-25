@@ -9,9 +9,9 @@
             (click)="goToEdit(anuncio.id)"></i>
         </h3>
         <p> {{ anuncio.desc }} </p>
-        <p-button class="ui-button-success ui-button-rounded" role="button" aria-haspopup="true" aria-expanded="false"
-          id="verAnuncio" label="Ver anuncio" [routerLink]="['/webapp/articuloview/'+anuncio.id]">
-        </p-button>
+        <button pButton class="ui-button-success ui-button-rounded buttonVerAnuncio" role="button" aria-haspopup="true" aria-expanded="false"
+          id="verAnuncio{{anuncio.id}}" label="Ver anuncio" [routerLink]="['/webapp/anuncioview/'+anuncio.id]">
+        </button>
       </div>
     </div>
   </p-scrollPanel>

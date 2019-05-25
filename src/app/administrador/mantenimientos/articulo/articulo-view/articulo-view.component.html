@@ -1,3 +1,6 @@
-<p>
-  articulo-view works!😂😂😂😂
-</p>
+<div class="container">
+    <h1 id="tituloAnuncio">{{ articulo.titulo }}</h1>
+    <p-scrollPanel [style]="{width: '100%', height: '75%'}" styleClass="home-anuncios-bar">
+      <div *ngIf="articulo" [froalaView]="articulo.articulo"></div>
+    </p-scrollPanel>
+</div>

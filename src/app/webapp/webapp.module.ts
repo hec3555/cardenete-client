@@ -37,12 +37,17 @@ import { ArticuloViewComponent } from '../administrador/mantenimientos/articulo/
 import { InformacionComponent } from './informacion/informacion.component';
 
 
+/* FROALA EDITOR */
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { AnuncioViewComponent } from './home/anuncio-view/anuncio-view.component';
+
 @NgModule({
     declarations: [
         HomeComponent,
         NavbarComponent,
         ArticuloViewComponent,
-        InformacionComponent
+        InformacionComponent,
+        AnuncioViewComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
@@ -70,7 +75,9 @@ import { InformacionComponent } from './informacion/informacion.component';
         DialogModule,
         ToastModule,
         MessageModule,
-        EditorModule
+        EditorModule,
+        FroalaEditorModule.forRoot(),
+        FroalaViewModule.forRoot()
     ],
     exports: [
         NavbarComponent

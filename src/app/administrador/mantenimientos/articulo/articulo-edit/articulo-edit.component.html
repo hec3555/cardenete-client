@@ -42,7 +42,7 @@
     <div class="form-group p-col-12">
       <label for="float-input">Artículo</label>
       <!-- <p-editor formControlName="articulo" id="articulo" [style]="{'height':'320px'}"></p-editor> -->
-      <div [froalaEditor] formControlName="articulo" id="articulo">Hello, Froala!</div>
+      <div [froalaEditor] formControlName="articulo" id="articulo"></div>
       <div style="margin-top: 10px;"
         *ngIf="formularioArticuloEdit.get('articulo').hasError('required') && formularioArticuloEdit.get('articulo').dirty">
         <p-message severity="error" text="Artículo obligatorio"></p-message>
