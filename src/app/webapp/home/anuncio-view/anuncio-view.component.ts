@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ArticuloService } from 'src/app/service/articulo/articulo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigService } from 'src/app/service/config/config.service';

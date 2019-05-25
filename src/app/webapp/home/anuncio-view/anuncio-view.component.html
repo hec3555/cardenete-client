@@ -1,12 +1,13 @@
 <div class="container" *ngIf="articulo">
   <div id="headerAnuncio" class="ui-md-12 ui-g-12">
-    <span id="fecha" class="ui-md-3 ui-g-3">{{ formatDate(articulo.fecha, false) }}</span>
-    <h1 id="tituloAnuncio" class="ui-md-6 ui-g-6">{{ articulo.titulo }}</h1>
+    <span id="fecha" class="ui-sm-6 ui-md-3 ui-g-3">{{ formatDate(articulo.fecha, false) }}</span>
+    <h1 id="tituloAnuncio" class="ui-sm-12 ui-md-6 ui-g-6">{{ articulo.titulo }}</h1>
     <span id="usuario" class="ui-md-3 ui-g-3"> {{ articulo.id_usuario.nombre }} {{ articulo.id_usuario.ape1 }} </span>
   </div>
   <div id="cuerpoAnuncio" class="ui-md-12 ui-g-12" style="height: 100%">
     <p-scrollPanel [style]="{width: '100%', height: '75%'}" styleClass="home-anuncios-bar anuncioEntero">
-      <p id="descripcion"> {{ articulo.desc }} </p>
+      <p id="descripcion">Breve descripción: <br> <i>{{ articulo.desc }}</i> </p>
+      <br>
       <div [froalaView]="articulo.articulo" id="cuerpoAnuncio"></div>
     </p-scrollPanel>
   </div>

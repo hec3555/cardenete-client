@@ -29,6 +29,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
+import { AngularResizedEventModule } from 'angular-resize-event';
 
 
 import { AdministradorModule } from '../administrador/administrador.module';
@@ -77,7 +78,8 @@ import { AnuncioViewComponent } from './home/anuncio-view/anuncio-view.component
         MessageModule,
         EditorModule,
         FroalaEditorModule.forRoot(),
-        FroalaViewModule.forRoot()
+        FroalaViewModule.forRoot(),
+        AngularResizedEventModule
     ],
     exports: [
         NavbarComponent

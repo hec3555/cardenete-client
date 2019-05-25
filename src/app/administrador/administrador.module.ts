@@ -29,6 +29,7 @@ import { ReactiveFormsModule, FormsModule } from '../../../node_modules/@angular
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
+import { InputMaskModule } from 'primeng/inputmask';
 
 
 
@@ -82,6 +83,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
         ScrollPanelModule,
         TooltipModule,
         CalendarModule,
+        InputMaskModule,
         ChartModule,
         InputTextModule,
         InputSwitchModule,

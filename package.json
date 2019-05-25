@@ -25,6 +25,7 @@
     "@types/quill": "^2.0.2",
     "ajv": "^6.10.0",
     "angular-froala-wysiwyg": "^2.9.5",
+    "angular-resize-event": "^1.0.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
     "jquery": "^3.4.1",

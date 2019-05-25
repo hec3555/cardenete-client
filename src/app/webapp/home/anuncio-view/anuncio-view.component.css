@@ -10,11 +10,24 @@
 
 #fecha{
     padding: 2%;
+    margin-top: 2%;
 }
 
 #usuario{
     text-align: right;
     padding: 2%;
+    margin-top: 2%;
+}
+
+@media(max-width: 992px){
+    #fecha{
+        margin-top: 3%;
+    }
+}
+@media(max-width: 768px){
+    #fecha{
+        margin-top: 5%;
+    }
 }
 
 .container {

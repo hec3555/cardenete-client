@@ -8,10 +8,7 @@
 .titulosAnuncios{
     font-family: 'Libre Baskerville', serif;
     padding-left: 0px;
-}
-
-.tituloAnuncio{
-    width: 100%;
+    margin-bottom: 0px;
 }
 
 .editIcon{
@@ -38,4 +35,23 @@
     margin: 10px;
     background-color: #7EA172 !important;
     border: 1px solid #7EA172 !important;
+}
+
+[id^=fechaAnuncioN], .editIcon{
+    margin-top: 2.5%;
+}
+
+@media(max-width: 961px){
+    [id^=fechaAnuncioN], .editIcon{
+        margin-top: 3%;
+    }
+    .editIcon{
+        font-size: 1.5em;
+    }
+}
+
+@media(max-width: 768px){
+    [id^=fechaAnuncioN], .editIcon{
+        margin-top: 7%;
+    }
 }
