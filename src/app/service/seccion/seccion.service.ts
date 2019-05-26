@@ -12,8 +12,8 @@ export class SeccionService {
     getAll(): Observable<SeccionInterface[]> {
         return this.http.get<SeccionInterface[]>(`${this.config.api}secciones`, this.config.header);
     }
-    getById(id: number): Observable<SeccionInterface[]>{
-        return this.http.get<SeccionInterface[]>(`${this.config.api}secciones/${id}`, this.config.header);
+    getById(id: number): Observable<SeccionInterface>{
+        return this.http.get<SeccionInterface>(`${this.config.api}secciones/${id}`, this.config.header);
     }
     update(seccion: SeccionInterface): Observable<ResponseInterface> {
         return this.http.put<ResponseInterface>(`${this.config.api}secciones`, seccion, this.config.header);

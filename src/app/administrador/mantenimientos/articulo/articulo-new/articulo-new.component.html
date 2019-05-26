@@ -1,0 +1,62 @@
+<div class="container">
+    <h1 *ngIf="seccionSeleccionada">Crear nueva entrada en {{ seccionSeleccionada.nom_seccion }}</h1>
+    <hr>
+    <form [formGroup]="formularioArticuloNew" class="p-grid">
+      <!-- TITULO -->
+      <div class="form-group p-col-12">
+        <span class="ui-float-label">
+          <input class="form-control" formControlName="titulo" id="titulo" type="text" pInputText>
+          <label for="float-input">Título - *obligatorio</label>
+        </span>
+        <div style="margin-top: 10px;"
+          *ngIf="formularioArticuloNew.get('titulo').hasError('required') && formularioArticuloNew.get('titulo').dirty">
+          <p-message severity="error" text="Título obligatorio"></p-message>
+        </div>
+      </div>
+      <!-- DESCRIPCION -->
+      <div class="form-group p-col-12 p-md-6">
+        <span class="ui-float-label">
+          <input class="form-control" formControlName="desc" id="desc" type="text" pInputText>
+          <label for="float-input">Descripción</label>
+        </span>
+      </div>
+      <!-- ARTICULO -->
+      <div class="form-group p-col-12">
+        <label for="float-input">Artículo</label>
+        <!-- <p-editor formControlName="articulo" id="articulo" [style]="{'height':'320px'}"></p-editor> -->
+        <div [froalaEditor] formControlName="articulo" id="articulo"></div>
+        <div style="margin-top: 10px;"
+          *ngIf="formularioArticuloNew.get('articulo').hasError('required') && formularioArticuloNew.get('articulo').dirty">
+          <p-message severity="error" text="Artículo obligatorio"></p-message>
+        </div>
+      </div>
+      <!-- ETIQUETAS -->
+      <div class="form-group p-col-12">
+        <span class="ui-float-label">
+          <input class="form-control" formControlName="etiquetas" id="etiquetas" type="text" pInputText>
+          <label for="float-input">Etiquetas</label>
+        </span>
+      </div>
+      <!-- USUARIO -->
+      <div class="form-group p-col-8">
+        <p-listbox [options]="usuarios" formControlName="id_usuario" checkbox="checkbox" filter="filter" optionLabel="nombre">
+          <p-header>
+            <i class="fa fa-user"></i>
+            <span style="margin-left: 5%">Elige un usuario</span>
+          </p-header>
+        </p-listbox>
+        <div style="margin-top: 10px;"
+          *ngIf="formularioArticuloNew.get('id_usuario').hasError('required') && formularioArticuloNew.get('id_usuario').dirty">
+          <p-message severity="error" text="Debes elegir un usuario"></p-message>
+        </div>
+      </div>
+      <!-- BOTONES -->
+      <div class="form-group p-col-12">
+        <div class="p-grid">
+          <button type="submit" class="btn btn-success p-col p-align-center" (click)="saveArticulo()"
+            [disabled]="!formularioArticuloNew.valid">Guardar</button>
+          <button class="btn btn-danger p-col p-align-center" (click)="_location.back()">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>

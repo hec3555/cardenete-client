@@ -15,15 +15,17 @@
         <a class="nav-link" [routerLink]="['/webapp/home']" routerLinkActive="active">Home</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+
+    <!-- BUSCADOR -->
+    <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
 
     <!-- PERFIL DE USUARIO -->
     <div class="userProfile" *ngIf="usuarioSession; else login">
-      <div class="nav-item dropdown">
-        <p-button class="nav-link dropdown-toggle ui-button-success ui-button-rounded" id="navbarDropdown" role="button" data-toggle="dropdown"
+      <div class="nav-item dropdown dropdown-toggle">
+        <p-button styleClass="nav-link ui-button-success ui-button-rounded" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" label="{{ usuarioSession.login }} - {{ usuarioSession.id_tipo_usuario.desc }}"></p-button>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" (click)="logout()">Logout</a>
@@ -32,7 +34,7 @@
     </div>
     <ng-template #login>
         <div class="nav-item dropdown">
-            <p-button class="nav-link ui-button-success ui-button-rounded" id="navbarDropdown" role="button"
+            <p-button styleClass="nav-link ui-button-success ui-button-rounded" id="navbarDropdown" role="button"
               aria-haspopup="true" aria-expanded="false" label="Login" [routerLink]="['/login']"></p-button>
           </div>
     </ng-template>

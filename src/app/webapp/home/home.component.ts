@@ -6,6 +6,7 @@ import { ConfigService } from 'src/app/service/config/config.service';
 import { Message, MessageService, ConfirmationService } from 'primeng/api';
 import { LoginService } from 'src/app/service/login/login.service';
 import { Roles } from '../../enum/roles.enum';
+import { Seccion } from '../../enum/secciones.enum';
 
 @Component({
   selector: 'app-home',
@@ -67,7 +68,7 @@ export class HomeComponent implements OnInit {
   }
 
   canEdit(anuncio) {
-    if (this.usuarioSession && this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN) {
+    if (this.canCreate()) {
       return true;
     } else {
       if(anuncio.id_usuario && this.usuarioSession.id == anuncio.id_usuario.id){
@@ -77,11 +78,25 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  canCreate(){
+    if(this.usuarioSession && this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   goToEdit(idAnuncio){
     if(this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN){
       this.router.navigate(['/admin/mantenimiento/articuloedit/'+idAnuncio]);
     }else{
       this.router.navigate(['/user/articuloedit/'+idAnuncio]);
+    }
+  }
+
+  goToNew(){
+    if(this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN){
+      this.router.navigate(['/admin/mantenimiento/articulonew/'+Seccion.ANUNCIOS]);
     }
   }
 

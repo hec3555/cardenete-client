@@ -1,5 +1,19 @@
 <div class="container">
-  <h1 id="tituloApartadoAnuncios">Entérate de lo último en Cardenete</h1>
+  <h1 id="tituloApartadoAnuncios">
+    <span>Entérate de lo último en Cardenete</span>
+    <button
+      *ngIf="usuarioSession && canCreate(anuncio)"
+      pButton
+      class="ui-button-rounded buttonCrearAnuncio"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+      id="crearAnuncio"
+      label="Nuevo anuncio"
+      (click)="goToNew()">
+    </button>
+  </h1>
+  
   <!-- Diálogo de confirmación -->
   <p-confirmDialog icon="pi pi-exclamation-triangle"></p-confirmDialog>
 

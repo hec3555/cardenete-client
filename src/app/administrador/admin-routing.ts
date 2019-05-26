@@ -17,6 +17,7 @@ import { UsuarioEditComponent } from './mantenimientos/usuario/usuario-edit/usua
 import { UsuarioViewComponent } from './mantenimientos/usuario/usuario-view/usuario-view.component';
 import { UsuarioNewComponent } from './mantenimientos/usuario/usuario-new/usuario-new.component';
 import { ArticuloEditComponent } from './mantenimientos/articulo/articulo-edit/articulo-edit.component';
+import { ArticuloNewComponent } from './mantenimientos/articulo/articulo-new/articulo-new.component';
 
 export const routes: Routes = [
     {
@@ -43,6 +44,12 @@ export const routes: Routes = [
                     {
                         path:"articuloedit/:id",
                         component: ArticuloEditComponent,
+                        canLoad: [AuthAdmin],
+                        data: { id: Roles.ADMIN }
+                    },
+                    {
+                        path:"articulonew/:idSeccion",
+                        component: ArticuloNewComponent,
                         canLoad: [AuthAdmin],
                         data: { id: Roles.ADMIN }
                     },

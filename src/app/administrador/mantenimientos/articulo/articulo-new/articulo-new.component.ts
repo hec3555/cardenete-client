@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { MessageService } from 'primeng/api';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ConfigService } from 'src/app/service/config/config.service';
 import { ArticuloService } from 'src/app/service/articulo/articulo.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 import { SeccionService } from 'src/app/service/seccion/seccion.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ConfigService } from 'src/app/service/config/config.service';
 import { LoginService } from 'src/app/service/login/login.service';
-import { Roles } from '../../../../enum/roles.enum';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-articulo-edit',
-  templateUrl: './articulo-edit.component.html',
-  styleUrls: ['./articulo-edit.component.css'],
+  selector: 'app-articulo-new',
+  templateUrl: './articulo-new.component.html',
+  styleUrls: ['./articulo-new.component.css'],
   providers: [MessageService]
 })
-export class ArticuloEditComponent implements OnInit {
+export class ArticuloNewComponent implements OnInit {
 
   constructor(
     private messageService: MessageService,
@@ -37,24 +36,23 @@ export class ArticuloEditComponent implements OnInit {
   usuarioSeleccionado: UsuarioInterface;
   articuloSeleccionado: ArticuloInterface;
 
-  formularioArticuloEdit: FormGroup;
+  formularioArticuloNew: FormGroup;
 
   es: any;
 
   ngOnInit() {
     this.es = this.config.formatoFechaDatePicker;
     this.route.params.subscribe(data => {
-      this.articuloService.getById(data.id).subscribe(
-        data => this.putArticuloForm(data)
+      this.seccionService.getById(data.idSeccion).subscribe(
+        data => this.putSeccion(data)
       )
     })
 
     this.usuarioSession = this.login.usuario;
-    this.getSecciones();
     this.getUsuarios();
 
-    this.formularioArticuloEdit = new FormGroup({
-      id: new FormControl({value: '',disabled: true},[]),
+    this.formularioArticuloNew = new FormGroup({
+      id: new FormControl({ value: '', disabled: true }, []),
       titulo: new FormControl('', [Validators.required]),
       desc: new FormControl('', []),
       fecha: new FormControl('', [Validators.required]),
@@ -65,54 +63,52 @@ export class ArticuloEditComponent implements OnInit {
     })
   }
 
-  putArticuloForm(articulo: ArticuloInterface): void {
 
-    this.usuarioSeleccionado = articulo.id_usuario;
-    this.seccionSeleccionada = articulo.id_seccion;
-    this.articuloSeleccionado = articulo;
+  putSeccion(seccion: SeccionInterface) {
+    this.seccionSeleccionada = seccion;
+    this.putArticuloForm();
+  }
 
-    this.formularioArticuloEdit.patchValue({
-      id: articulo.id,
-      titulo: articulo.titulo,
-      desc: articulo.desc,
-      fecha: new Date(Date.parse(articulo.fecha.toString())),
-      articulo: articulo.articulo,
-      etiquetas: articulo.etiquetas,
+  putArticuloForm(): void {
+
+    this.formularioArticuloNew.patchValue({
+      id: null,
+      titulo: '',
+      desc: '',
+      fecha: new Date(),
+      articulo: '',
+      etiquetas: '',
       id_seccion: this.seccionSeleccionada,
-      id_usuario: this.usuarioSeleccionado
+      id_usuario: null
     })
   }
 
-  editArticulo(): void {
+  saveArticulo(): void {
 
-    const articulo: ArticuloInterface = this.formularioArticuloEdit.value;
+    const articulo: ArticuloInterface = this.formularioArticuloNew.value;
     console.log(articulo);
 
-    articulo.id = this.articuloSeleccionado.id;
-
-    this.articuloService.update(articulo).subscribe(
+    this.articuloService.create(articulo).subscribe(
       (response: ResponseInterface) => {
-        this.showTooltip('Articulo editado correctamente', '', `${response.msg}`)
+        this.showTooltip('Articulo creado correctamente', '', `${response.msg}`)
         this.articuloService.reloadArticulos.emit();
         this._location.back();
       },
       (error: ResponseInterface) => {
-        this.showTooltip('error', '', `Error editando el articulo`)
+        this.showTooltip('error', '', `Error creando el articulo`)
       }
     )
   }
 
-  getUsuarios(): void{
-    if(this.canShowUsuarios()){
-      this.usuarioService.getAll().subscribe(
-        (usuario: UsuarioInterface[]) => {
-          this.usuarios = usuario;
-        }
-      )
-    }
+  getUsuarios(): void {
+    this.usuarioService.getAll().subscribe(
+      (usuario: UsuarioInterface[]) => {
+        this.usuarios = usuario;
+      }
+    )
   }
 
-  getSecciones(): void{
+  getSecciones(): void {
     this.seccionService.getAll().subscribe(
       (seccion: SeccionInterface[]) => {
         this.secciones = seccion;
@@ -124,14 +120,6 @@ export class ArticuloEditComponent implements OnInit {
     this._location.back();
   }
 
-  canShowUsuarios(){
-    if(this.usuarioSession.id_tipo_usuario.id == Roles.ADMIN){
-      return true;
-    }else{
-      return false;
-    }
-  }
-
   showTooltip(type: string, title: string, desc: string) {
     this.messageService.add({
       severity: `${type}`,
@@ -139,6 +127,5 @@ export class ArticuloEditComponent implements OnInit {
       detail: `${desc}`
     })
   }
-
 
 }

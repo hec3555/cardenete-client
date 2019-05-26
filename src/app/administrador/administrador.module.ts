@@ -48,6 +48,7 @@ import { ArticuloEditComponent } from './mantenimientos/articulo/articulo-edit/a
 
 /* FROALA EDITOR */
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { ArticuloNewComponent } from './mantenimientos/articulo/articulo-new/articulo-new.component';
 
 @NgModule({
     declarations: [
@@ -64,7 +65,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
         UsuarioEditComponent,
         UsuarioViewComponent,
         UsuarioNewComponent,
-        ArticuloEditComponent
+        ArticuloEditComponent,
+        ArticuloNewComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
