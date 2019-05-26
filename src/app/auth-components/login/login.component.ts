@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         this.loginService.check().subscribe((usuario: UsuarioInterface) => {
           this.loginService.setUsuario(usuario);
           if(usuario.id_tipo_usuario.id == Roles.ADMIN){
-            this.router.navigate(['/admin/inicio']);
+            this.router.navigate(['/webapp/home']);
           }else{
             this.router.navigate(['/webapp/home']);
           }

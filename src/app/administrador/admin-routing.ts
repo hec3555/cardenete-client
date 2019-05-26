@@ -24,12 +24,12 @@ export const routes: Routes = [
         path: "admin",
         component: AdministradorComponent,
         children: [
-            {
+            /* {
                 path: "inicio",
                 component: IndexadminComponent,
                 canLoad: [AuthAdmin],
                 data: { id: Roles.ADMIN }
-            },
+            }, */
             {
                 path: "mantenimiento",
                 component: MantenimientosComponent,
