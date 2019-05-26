@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 
 
   getData(): void {
-    this.articuloSQL.getAllBySeccion(2).subscribe(
+    this.articuloSQL.getAllBySeccion(Seccion.ANUNCIOS).subscribe(
       data => this.anuncios = data,
       error => this.showTooltip('error', '', `${error.msg}`)
     )

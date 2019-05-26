@@ -30,17 +30,18 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
 import { AngularResizedEventModule } from 'angular-resize-event';
+import { TabViewModule } from 'primeng/tabview';
 
 
 import { AdministradorModule } from '../administrador/administrador.module';
 import { UsuarioModule } from '../usuario/usuario.module';
 import { ArticuloViewComponent } from '../administrador/mantenimientos/articulo/articulo-view/articulo-view.component';
 import { InformacionComponent } from './informacion/informacion.component';
+import { AnuncioViewComponent } from './home/anuncio-view/anuncio-view.component';
 
 
 /* FROALA EDITOR */
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { AnuncioViewComponent } from './home/anuncio-view/anuncio-view.component';
 
 @NgModule({
     declarations: [
@@ -79,7 +80,8 @@ import { AnuncioViewComponent } from './home/anuncio-view/anuncio-view.component
         EditorModule,
         FroalaEditorModule.forRoot(),
         FroalaViewModule.forRoot(),
-        AngularResizedEventModule
+        AngularResizedEventModule,
+        TabViewModule
     ],
     exports: [
         NavbarComponent

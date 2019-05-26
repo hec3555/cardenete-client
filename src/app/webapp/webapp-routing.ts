@@ -2,6 +2,7 @@ import { AnuncioViewComponent } from './home/anuncio-view/anuncio-view.component
 import { WebappComponent } from './webapp.component';
 import { HomeComponent } from "./home/home.component";
 import { Routes } from '@angular/router';
+import { InformacionComponent } from './informacion/informacion.component';
 
 
 
@@ -19,6 +20,10 @@ export const routes: Routes = [
                 path:"anuncioview/:id",
                 component: AnuncioViewComponent
             },
+            {
+                path: "informacion",
+                component: InformacionComponent
+            }
         ]
     }
 ];
