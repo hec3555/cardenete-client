@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Location } from '@angular/common';
 import { ArticuloService } from 'src/app/service/articulo/articulo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigService } from 'src/app/service/config/config.service';
@@ -18,7 +19,8 @@ export class AnuncioViewComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private config: ConfigService,
-    private login: LoginService
+    private login: LoginService,
+    private _location: Location
   ) { }
 
   usuarioSession: UsuarioInterface;
@@ -46,5 +48,9 @@ export class AnuncioViewComponent implements OnInit {
     } else {
       return this.config.miliToDate(new Date(fecha));
     }
+  }
+
+  backClicked() {
+    this._location.back();
   }
 }

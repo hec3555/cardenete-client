@@ -1,14 +1,27 @@
 <div class="container" *ngIf="articulo">
+    
   <div id="headerAnuncio" class="ui-md-12 ui-g-12">
-    <span id="fecha" class="ui-sm-6 ui-md-3 ui-g-3">{{ formatDate(articulo.fecha, false) }}</span>
-    <h1 id="tituloAnuncio" class="ui-sm-12 ui-md-6 ui-g-6">{{ articulo.titulo }}</h1>
-    <span *ngIf="articulo.id_usuario" id="usuario" class="ui-md-3 ui-g-3"> {{ articulo.id_usuario.nombre }} {{ articulo.id_usuario.ape1 }} </span>
+    <span id="fecha" class="ui-sm-4 ui-md-3 ui-g-3">{{ formatDate(articulo.fecha, false) }}<br>
+        <button
+        pButton
+        class="ui-button-rounded ui-button-success"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+        id="volver"
+        label="Volver"
+        (click)="backClicked()"
+        style="align-self: right">
+      </button>
+    </span>
+    <h1 id="tituloAnuncio" class="ui-sm-8 ui-md-6 ui-g-6">{{ articulo.titulo }}</h1>
+    <span *ngIf="articulo.id_usuario" id="usuario" class="ui-sm-12 ui-md-3 ui-g-3"> {{ articulo.id_usuario.nombre }} {{ articulo.id_usuario.ape1 }} </span>
   </div>
-  <div id="cuerpoAnuncio" class="ui-md-12 ui-g-12" style="height: 100%">
-    <p-scrollPanel [style]="{width: '100%', height: '75%'}" styleClass="home-anuncios-bar anuncioEntero">
+  <div id="cuerpoAnuncio" class="ui-md-12 ui-g-12" style="height: 75%">
+    <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="home-anuncios-bar anuncioEntero">
       <p id="descripcion">Breve descripción: <br> <i>{{ articulo.desc }}</i> </p>
       <br>
-      <div [froalaView]="articulo.articulo" id="cuerpoAnuncio"></div>
+      <div [froalaView]="articulo.articulo" id="cuerpoAnuncioFroala"></div>
     </p-scrollPanel>
   </div>
 

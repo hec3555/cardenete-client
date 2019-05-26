@@ -8,9 +8,18 @@
     margin-top: 2%;
 }
 
+#cuerpoAnuncio{
+    background: rgba(218, 245, 255, 0.418);
+    border-radius: 2% 1%;
+}
+
 #fecha{
     padding: 2%;
     margin-top: 2%;
+}
+
+#volver{
+    margin-top: 18%;
 }
 
 #usuario{
@@ -37,4 +46,10 @@
     height: 100%;
     width: 100%;
     padding: 5%;
+}
+
+@media (max-width: 640px){
+    #usuario{
+        display: none;
+    }
 }
