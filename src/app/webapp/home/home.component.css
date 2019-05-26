@@ -37,21 +37,21 @@
     border: 1px solid #7EA172 !important;
 }
 
-[id^=fechaAnuncioN], .editIcon{
-    margin-top: 2.5%;
+[id^=fechaAnuncioN], .editIcon, .deleteIcon{
+    margin-top: 2%;
 }
 
 @media(max-width: 961px){
-    [id^=fechaAnuncioN], .editIcon{
+    [id^=fechaAnuncioN], .editIcon, .deleteIcon{
         margin-top: 3%;
     }
-    .editIcon{
+    .editIcon, .deleteIcon{
         font-size: 1.5em;
     }
 }
 
 @media(max-width: 768px){
-    [id^=fechaAnuncioN], .editIcon{
+    [id^=fechaAnuncioN], .editIcon, .deleteIcon{
         margin-top: 7%;
     }
 }

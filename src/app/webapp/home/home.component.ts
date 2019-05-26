@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticuloService } from 'src/app/service/articulo/articulo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigService } from 'src/app/service/config/config.service';
-import { MessageService } from 'primeng/api';
+import { Message, MessageService, ConfirmationService } from 'primeng/api';
 import { LoginService } from 'src/app/service/login/login.service';
 import { Roles } from '../../enum/roles.enum';
 
@@ -11,7 +11,7 @@ import { Roles } from '../../enum/roles.enum';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [MessageService]
+  providers: [MessageService, ConfirmationService]
 })
 export class HomeComponent implements OnInit {
 
@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
     private messageService: MessageService,
     private router: Router,
     private config: ConfigService,
-    private login: LoginService
+    private login: LoginService,
+    private confirmationService: ConfirmationService
   ) {
     articuloSQL.reloadArticulos.subscribe(
       () => this.getData()
@@ -30,6 +31,8 @@ export class HomeComponent implements OnInit {
 
   anuncios: ArticuloInterface[];
   usuarioSession: UsuarioInterface;
+  msgs: Message[] = [];
+
 
   es: any;
 
@@ -63,10 +66,13 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  canEdit(idArticulo) {
-    if (this.usuarioSession && (this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN || this.usuarioSession.id == idArticulo)) {
+  canEdit(anuncio) {
+    if (this.usuarioSession && this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN) {
       return true;
     } else {
+      if(anuncio.id_usuario && this.usuarioSession.id == anuncio.id_usuario.id){
+        return true;
+      }
       return false;
     }
   }
@@ -77,5 +83,33 @@ export class HomeComponent implements OnInit {
     }else{
       this.router.navigate(['/user/articuloedit/'+idAnuncio]);
     }
+  }
+
+  delete(data: ArticuloInterface): void {
+    this.articuloSQL.delete(data).subscribe(
+      data => {
+        this.articuloSQL.reloadArticulos.emit();
+        this.showTooltip('success', '', `${data.msg}`)
+      },
+      error => {
+        this.showTooltip('error', '', `${error.msg}`)
+      }
+    )
+  }
+
+  // Confirmación del dialogo de borrar anuncio
+  confirm(anuncio: ArticuloInterface) {
+    this.msgs = [];
+    this.confirmationService.confirm({
+      header: 'Confirmación',
+      message: '¿Estás seguro de que quieres eliminar el anuncio "' + anuncio.titulo + '"?',
+      accept: () => {
+        this.delete(anuncio);
+        this.showTooltip('success', 'Borrrado', 'Anuncio eliminado correctamente');    
+      },
+      reject: () => {
+        this.showTooltip('warn', 'Operación cancelada', 'Anuncio no eliminado');
+      }
+    });
   }
 }

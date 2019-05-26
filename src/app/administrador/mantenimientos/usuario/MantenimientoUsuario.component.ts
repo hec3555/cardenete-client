@@ -67,6 +67,7 @@ export class MantenimientoUsuarioComponent implements OnInit {
     this.sql.delete(data).subscribe(
       data => {
         this.sql.reloadUsuarios.emit();
+        console.log("Delete hecho y reloadusuarios tambien");
         this.showTooltip('success', '', `${data.msg}`)
       },
       error => {
