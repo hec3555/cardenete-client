@@ -1,3 +1,21 @@
-<p>
-  informacion works!
-</p>
+<div class="container">
+  <!-- <p-tabView id="tabs">
+    <p-tabPanel [header]="articulo.titulo" *ngFor="let articulo of informacion; let i = index" [selected]="i == 0"
+      styleClass="ui-md-12 ui-g-12" id="tab{{i}}">
+          <p-scrollPanel [style]="{width: '100%', height: '75%'}" styleClass="ui-md-12 ui-g-12 home-anuncios-bar anuncioEntero">
+              <div [froalaView]="articulo.articulo" id="cuerpoAnuncioFroala"></div>
+          </p-scrollPanel>
+    </p-tabPanel>
+  </p-tabView> -->
+  <p-tabView id="tabs">
+    <p-tabPanel [header]="informacion[0].titulo" [selected]="true">
+      <div id="cuerpoAnuncio" class="ui-md-12 ui-g-12" style="height: 75%" *ngIf="informacion">
+        <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="home-anuncios-bar anuncioEntero">
+          <p id="descripcion">Breve descripción: <br> <i>{{ informacion[0].desc }}</i> </p>
+          <br>
+          <div [froalaView]="informacion[0].articulo" id="cuerpoAnuncioFroala"></div>
+        </p-scrollPanel>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</div>
