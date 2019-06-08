@@ -26,5 +26,15 @@ body {
 
 .home-anuncios-bar .ui-scrollpanel-bar:hover {
     background-color: rgb(49, 146, 78);
-    ;
+}
+
+.home-anuncios-bar{
+    width: 100%;
+    height: 68%;
+}
+
+@media (max-width: 600px){
+    .home-anuncios-bar{
+        height: 50%;
+    }
 }

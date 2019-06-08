@@ -1,10 +1,50 @@
 <div class="container" *ngIf="informacion">
-  <p-tabView id="tabs" >
+
+  <!-- Diálogo de confirmación -->
+  <p-confirmDialog icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+  <!-- Mensajes (añadido/eliminado correctamente, etc) -->
+  <p-toast position="top-center"></p-toast>
+
+  <button
+    *ngIf="usuarioSession && canEditOrCreate()"
+    pButton
+    class="ui-button-rounded buttonCrearInformacion"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    id="crearInformación"
+    label="Nueva información"
+    (click)="goToNew()">
+  </button>
+  <p-tabView id="tabs">
     <p-tabPanel *ngFor="let articulo of informacion; let i = index" [header]="articulo.titulo" [selected]="i == 0">
       <div class="informacion-container">
-        <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="home-anuncios-bar anuncioEntero">
+        <p-scrollPanel [style]="{width: '100%', height: '85%'}" styleClass="home-anuncios-bar anuncioEntero">
           <div class="inside-informacion" [froalaView]="articulo.articulo" id="cuerpoAnuncioFroala"></div>
         </p-scrollPanel>
+        <button
+          *ngIf="usuarioSession && canEditOrCreate()"
+          pButton
+          aria-haspopup="true"
+          aria-expanded="false"
+          class="ui-button-rounded buttonsEditAndDeleteInformacion ui-sm-4 ui-md-3"
+          (click)="goToEdit(articulo.id)"
+          icon="pi pi-pencil"
+          iconPos="left"
+          label="Editar">
+        </button>
+        <button
+          *ngIf="usuarioSession && canEditOrCreate()"
+          pButton
+          aria-haspopup="true"
+          aria-expanded="false"
+          class="ui-button-rounded buttonsEditAndDeleteInformacion ui-sm-4 ui-sm-3"
+          (click)="confirm(articulo)"
+          icon="pi pi-trash"
+          iconPos="left"
+          label="Borrar">
+        </button>
       </div>
       <!-- <span id="fechaArticulo">Creado en: {{formatDate(articulo.fecha, false)}}</span> -->
     </p-tabPanel>

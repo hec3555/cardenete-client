@@ -81,7 +81,7 @@ export class InformacionComponent implements OnInit {
 
   goToNew(){
     if(this.usuarioSession.id_tipo_usuario.id === Roles.ADMIN){
-      this.router.navigate(['/admin/mantenimiento/articulonew/'+Seccion.ANUNCIOS]);
+      this.router.navigate(['/admin/mantenimiento/articulonew/'+Seccion.INFORMACION]);
     }
   }
 
