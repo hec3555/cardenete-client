@@ -6,6 +6,13 @@ body {
 }
 
 
+/* tabs activos */
+.ui-state-active{
+    background: #59c9a5 !important;
+    border: 1px solid #59c9a5 !important;
+    /* border: 1px solid #79c99e !important; */
+}
+
 /* Barra de scroll para el div de los anuncios del home */
 .home-anuncios-bar .ui-scrollpanel-wrapper {
     border-right: 9px solid #f4f4f4;
