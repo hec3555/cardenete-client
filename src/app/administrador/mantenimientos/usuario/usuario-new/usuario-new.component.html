@@ -35,7 +35,7 @@
     <div class="form-group p-col-12">
       <span class="ui-float-label">
         <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es" size="30"></p-calendar>
-        <label for="float-input">Fecha de nacimiento - *obligatorio</label>
+        <label for="float-input">Fecha de nacimiento</label>
       </span>
       <div class="mt-2 mb-2" style="margin-top: 10px;"
         *ngIf="formularioUsuarioNew.get('fecha_nacimiento').hasError('required') && formularioUsuarioNew.get('fecha_nacimiento').touched ">
