@@ -17,18 +17,33 @@ import { WebappModule } from './webapp/webapp.module';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioModule } from './usuario/usuario.module';
 
-/* PRIMENG */
-import { OverlayPanelModule } from 'primeng/overlaypanel';
+//https://www.primefaces.org/primeng
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { BlockUIModule } from 'primeng/blockui';
 import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { TooltipModule } from 'primeng/tooltip';
+import { CalendarModule } from 'primeng/calendar';
+import { ChartModule } from 'primeng/chart';
+import { InputTextModule } from 'primeng/inputtext';
+import { ListboxModule } from 'primeng/listbox';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
+import { InputMaskModule } from 'primeng/inputmask';
 
 /* FROALA EDITOR */
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { FooterComponent } from './footer/footer.component';
 import { RegistrarComponent } from './auth-components/registrar/registrar.component';
 import { ConfirmarCuentaComponent } from './auth-components/confirmar-cuenta/confirmar-cuenta.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -47,7 +62,6 @@ import { ConfirmarCuentaComponent } from './auth-components/confirmar-cuenta/con
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
     AdministradorModule,
     WebappModule,
@@ -60,8 +74,23 @@ import { ConfirmarCuentaComponent } from './auth-components/confirmar-cuenta/con
     ToastModule,
     MessageModule,
     EditorModule,
+    CalendarModule,
+    InputSwitchModule,
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    MatProgressSpinnerModule,
+    ProgressSpinnerModule,
+    BlockUIModule,
+    ButtonModule,
+    MessagesModule,
+    ScrollPanelModule,
+    TooltipModule,
+    InputMaskModule,
+    ChartModule,
+    InputTextModule,
+    ListboxModule,
+    SelectButtonModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

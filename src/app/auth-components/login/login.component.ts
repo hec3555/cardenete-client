@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
   }
 
   goToRegistrar(){
-    
+    this.router.navigate(['/registrar']);
   }
 
   showTooltip(type: string, title: string, desc: string) {
