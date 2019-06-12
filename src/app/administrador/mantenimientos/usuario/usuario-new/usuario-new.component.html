@@ -74,6 +74,10 @@
         *ngIf="formularioUsuarioNew.get('email').hasError('email') && formularioUsuarioNew.get('email').dirty">
         <p-message severity="error" text="Formato de email no válido"></p-message>
       </div>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioNew.get('email').hasError('required') && formularioUsuarioNew.get('email').dirty">
+        <p-message severity="error" text="Email obligatorio"></p-message>
+      </div>
     </div>
     <!-- CONFIRMADO -->
     <div class="form-group p-col-4">

@@ -47,17 +47,20 @@ export class LoginComponent implements OnInit {
 
     this.loginService
       .login(usuario)
-      .subscribe(data => {
-        this.loginService.check().subscribe((usuario: UsuarioInterface) => {
-          this.loginService.setUsuario(usuario);
-          if(usuario.id_tipo_usuario.id == Roles.ADMIN){
-            this.router.navigate(['/webapp/home']);
-          }else{
-            this.router.navigate(['/webapp/home']);
-          }
-        })
-      },
+      .subscribe(
+        data => {
+          this.loginService.check().subscribe((usuario: UsuarioInterface) => {
+            this.loginService.setUsuario(usuario);
+            if(usuario.id_tipo_usuario.id == Roles.ADMIN){
+              this.router.navigate(['/webapp/home']);
+            }else{
+              this.router.navigate(['/webapp/home']);
+            }
+          })
+        },
         error => {
+          console.log(error)
+          this.showTooltip("error", "Login fallido", error.error.msg);
         });
   }
 

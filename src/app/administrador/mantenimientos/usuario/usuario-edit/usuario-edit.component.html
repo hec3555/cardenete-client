@@ -68,6 +68,10 @@
         <label for="float-input">Login</label>
       </span>
       <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioEdit.get('login').hasError('email') && formularioUsuarioEdit.get('login').dirty">
+        <p-message severity="error" text="Formato de email no válido"></p-message>
+      </div>
+      <div style="margin-top: 10px;"
         *ngIf="formularioUsuarioEdit.get('login').hasError('required') && formularioUsuarioEdit.get('login').dirty">
         <p-message severity="error" text="Login obligatorio"></p-message>
       </div>

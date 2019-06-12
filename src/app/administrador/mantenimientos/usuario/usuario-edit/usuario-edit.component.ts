@@ -52,7 +52,7 @@ export class UsuarioEditComponent implements OnInit {
       fecha_alta: new FormControl('', [Validators.required]),
       login: new FormControl('', [Validators.required]),
       pass: new FormControl('', []),
-      email: new FormControl('', [Validators.email]),
+      email: new FormControl('', [Validators.email, Validators.required]),
       confirmado: new FormControl('', []),
       id_tipo_usuario: new FormControl('', [Validators.required])
     })
