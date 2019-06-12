@@ -43,7 +43,7 @@
     <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es"></p-calendar>
-        <label for="float-input">Fecha de nacimiento</label>
+        <label for="float-input">Fecha de nacimiento - *obligatorio</label>
       </span>
       <div class="mt-2 mb-2" style="margin-top: 10px;"
         *ngIf="formularioUsuarioEdit.get('fecha_nacimiento').hasError('required') && formularioUsuarioEdit.get('fecha_nacimiento').touched ">
@@ -54,7 +54,7 @@
     <div class="form-group  p-col-12 p-md-6">
       <span class="ui-float-label">
         <p-calendar dateFormat="dd/mm/yy " formControlName="fecha_alta" [locale]="es"></p-calendar>
-        <label for="float-input">Fecha de alta</label>
+        <label for="float-input">Fecha de alta - *obligatorio</label>
       </span>
       <div class="mt-2 mb-2" style="margin-top: 10px;"
         *ngIf="formularioUsuarioEdit.get('fecha_alta').hasError('required') && formularioUsuarioEdit.get('fecha_alta').touched ">
@@ -65,12 +65,8 @@
     <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <input class="form-control" formControlName="login" id="login" type="text" size="30" pInputText>
-        <label for="float-input">Login</label>
+        <label for="float-input">Login - *obligatorio</label>
       </span>
-      <div style="margin-top: 10px;"
-        *ngIf="formularioUsuarioEdit.get('login').hasError('email') && formularioUsuarioEdit.get('login').dirty">
-        <p-message severity="error" text="Formato de email no válido"></p-message>
-      </div>
       <div style="margin-top: 10px;"
         *ngIf="formularioUsuarioEdit.get('login').hasError('required') && formularioUsuarioEdit.get('login').dirty">
         <p-message severity="error" text="Login obligatorio"></p-message>
@@ -82,20 +78,20 @@
         <input class="form-control" formControlName="pass" id="pass" type="password" size="30" pInputText>
         <label for="float-input">Password</label>
       </span>
-      <div style="margin-top: 10px;"
-        *ngIf="formularioUsuarioEdit.get('pass').hasError('required') && formularioUsuarioEdit.get('pass').dirty">
-        <p-message severity="error" text="Password obligatoria"></p-message>
-      </div>
     </div>
     <!-- EMAIL -->
     <div class="form-group p-col-12">
       <span class="ui-float-label">
         <input class="form-control" formControlName="email" id="email" type="text" size="30" pInputText>
-        <label for="float-input">Email</label>
+        <label for="float-input">Email - *obligatorio</label>
       </span>
       <div style="margin-top: 10px;"
         *ngIf="formularioUsuarioEdit.get('email').hasError('email') && formularioUsuarioEdit.get('email').dirty">
         <p-message severity="error" text="Formato de email no válido"></p-message>
+      </div>
+      <div style="margin-top: 10px;"
+        *ngIf="formularioUsuarioEdit.get('email').hasError('required') && formularioUsuarioEdit.get('email').dirty">
+        <p-message severity="error" text="Email obligatorio"></p-message>
       </div>
     </div>
     <!-- CONFIRMADO -->

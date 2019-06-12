@@ -35,7 +35,7 @@
     <div class="form-group p-col-12">
       <span class="ui-float-label">
         <p-calendar dateFormat="dd/mm/yy" formControlName="fecha_nacimiento" [locale]="es" size="30"></p-calendar>
-        <label for="float-input">Fecha de nacimiento</label>
+        <label for="float-input">Fecha de nacimiento - *obligatorio</label>
       </span>
       <div class="mt-2 mb-2" style="margin-top: 10px;"
         *ngIf="formularioUsuarioNew.get('fecha_nacimiento').hasError('required') && formularioUsuarioNew.get('fecha_nacimiento').touched ">
@@ -46,7 +46,7 @@
     <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <input class="form-control" formControlName="login" id="login" type="text" size="30" pInputText>
-        <label for="float-input">Login</label>
+        <label for="float-input">Login - *obligatorio</label>
       </span>
       <div style="margin-top: 10px;"
         *ngIf="formularioUsuarioNew.get('login').hasError('required') && formularioUsuarioNew.get('login').dirty">
@@ -57,7 +57,7 @@
     <div class="form-group p-col-12 p-md-6">
       <span class="ui-float-label">
         <input class="form-control" formControlName="pass" id="pass" type="password" size="30" pInputText>
-        <label for="float-input">Password</label>
+        <label for="float-input">Password - *obligatorio</label>
       </span>
       <div style="margin-top: 10px;"
         *ngIf="formularioUsuarioNew.get('pass').hasError('required') && formularioUsuarioNew.get('pass').dirty">
@@ -68,7 +68,7 @@
     <div class="form-group p-col-12">
       <span class="ui-float-label">
         <input class="form-control" formControlName="email" id="email" type="text" size="30" pInputText>
-        <label for="float-input">Email</label>
+        <label for="float-input">Email - *obligatorio</label>
       </span>
       <div style="margin-top: 10px;"
         *ngIf="formularioUsuarioNew.get('email').hasError('email') && formularioUsuarioNew.get('email').dirty">
