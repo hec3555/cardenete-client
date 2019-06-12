@@ -6,6 +6,17 @@
 a{
 	text-decoration:none !important;
 }
+
+#signup{
+	text-decoration: underline !important;
+	color: blue;
+	cursor: pointer;
+}
+
+#registroContainer{
+	margin-top: 5px;
+}
+
 h1,h2,h3{
 	font-family: 'Kaushan Script', cursive;
 }

@@ -64,6 +64,10 @@ export class LoginComponent implements OnInit {
         });
   }
 
+  goToRegistrar(){
+    
+  }
+
   showTooltip(type: string, title: string, desc: string) {
     this.messageService.add({
       severity: `${type}`,
