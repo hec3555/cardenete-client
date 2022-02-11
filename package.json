@@ -23,7 +23,7 @@
     "@angular/router": "^7.2.14",
     "@ng-bootstrap/ng-bootstrap": "^4.1.2",
     "@types/quill": "^2.0.2",
-    "ajv": "^6.10.0",
+    "ajv": "^6.12.3",
     "angular-froala-wysiwyg": "^2.9.5",
     "angular-resize-event": "^1.0.0",
     "bootstrap": "^4.3.1",
